@@ -21,13 +21,6 @@ window.SITE = {
       bullets: [
         "Key Coursework: Signals and Systems, Telecommunications, Electromagnetic Theory, Digital Communications, Circuit Analysis, Feedback Control Systems, Power Systems"
       ]
-    },
-    {
-      school: "Cem Bakioğlu Anatolian High School",
-      degree: "High School Diploma",
-      date: "Sep 2018 – Jun 2022",
-      location: "İzmir, Turkey",
-      bullets: []
     }
   ],
 
