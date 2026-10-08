@@ -4,7 +4,6 @@ window.SITE = {
   title: "Electrical & Electronics Engineering · RF & Test Automation",
   contact: {
     email: "efedemirer.tr@gmail.com",
-    phone: "+90 554 638 86 92",
     location: "İzmir, Turkey",
     linkedin: "https://www.linkedin.com/in/efe-demirer-aa7ba3252",
     github: "https://github.com/efedemirerr"

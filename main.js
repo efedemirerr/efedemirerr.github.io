@@ -94,6 +94,5 @@ $("contact-list").innerHTML = `
   <a class="btn" href="mailto:${d.contact.email}">${esc(d.contact.email)}</a>
   <a class="btn" href="${d.contact.linkedin}" target="_blank" rel="noopener">LinkedIn</a>
   ${d.contact.github ? `<a class="btn" href="${d.contact.github}" target="_blank" rel="noopener">GitHub</a>` : ""}
-  <span class="btn">${esc(d.contact.phone)}</span>
   <span class="btn">${esc(d.contact.location)}</span>`;
 $("year").textContent = new Date().getFullYear();
