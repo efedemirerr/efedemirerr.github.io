@@ -7,7 +7,7 @@ window.SITE = {
     phone: "+90 554 638 86 92",
     location: "İzmir, Turkey",
     linkedin: "https://www.linkedin.com/in/efe-demirer-aa7ba3252",
-    github: "https://github.com/efedemirer"
+    github: "https://github.com/efedemirerr"
   },
   summary:
     "Senior Electrical and Electronics Engineering student at Yaşar University (100% Scholarship, GPA: 3.73 / 4.00) with hands-on laboratory and field engineering experience across RF & antenna test automation, Cartesian motion control systems, hardware interfacing, and solar telemetry. At ASELSAN REHİS Test Centers Directorate, I developed automated C# GUI control platforms for planar Cartesian X-Y antenna scanners with GRBL G-Code and fail-safe limit switch interlocks, engineered Ethernet-based Harogic real-time spectrum analyzer API integrations featuring custom peak search algorithms, and conducted hands-on VNA calibrations and P1dB amplifier compression testing. At OPA Mühendislik, I designed solar PV electrical infrastructures and co-engineered the SolarOPA autonomous AI monitoring and telemetry system.",
