@@ -187,12 +187,21 @@ window.SITE = {
   ],
 
   certifications: [
-    "English Proficiency Certificate (B2 Upper-Intermediate) – Yaşar University School of Foreign Languages",
-    "Occupational Health & Safety (İSG) Certification – ASELSAN, 2026",
-    "Core MATLAB Skills & Data Exploration – MathWorks, 2026",
-    "MATLAB & Simulink Onramp – MathWorks, 2026",
-    "Feedback Systems Analysis & Modeling – Yaşar University, 2026",
-    "High Voltage Operating Responsibility & Inspection Training – OPA Mühendislik, 2025"
+    "ASELSAN – 'a Yetenek' Engineering Internship Program Certificate of Completion (2026)",
+    "Ministry of Industry and Technology & National Technology Academy – Chip Design (Çip Tasarımı) Specialization Program (2026)",
+    "ROKETSAN – LEVEL UP AI: Smart Object Detection and Tracking with YOLO (2026)",
+    "ROKETSAN – LEVEL UP AI: Autonomous AI Agent Development & Document Assistants (2026)",
+    "Turkish Aerospace (TUSAŞ) – LIFT UP Industry-Oriented Capstone Projects Conference (2025)",
+    "Savunma Sanayii Akademi (SSB) – Milli Yetkinlik Hamlesi Competency & Career Summit (2026)",
+    "MathWorks – Core Signal Processing Techniques in MATLAB (Spectral Analysis, Filter Design, Time-Frequency, Resampling)",
+    "MathWorks – Core MATLAB Skills (Vector/Matrix Mathematics, Data Visualization, Script Troubleshooting)",
+    "MathWorks – Simulink Fundamentals (Simulation & Model-Based Design, 2026)",
+    "MathWorks – Simscape Onramp (Physical Multi-Domain Systems Modeling, 2026)",
+    "MathWorks – Signal Processing Onramp (2025)",
+    "TÜBİTAK – 4006 Science and Society Project Award / Participant",
+    "Yaşar University School of Foreign Languages – English Proficiency Certificate (B2 Upper-Intermediate)",
+    "ASELSAN – Occupational Health and Safety (İSG) Certification (2026)",
+    "OPA Mühendislik – High Voltage Operating Responsibility & Inspection Training (2025)"
   ],
 
   languages: [

@@ -70,6 +70,7 @@ h3 { margin: 0; font-size: 1.08rem; }
 
 .two { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
 .two ul { margin: 0; padding-left: 20px; }
+.two ul li { margin-bottom: 8px; }
 .contact { display: flex; flex-wrap: wrap; gap: 10px; }
 
 .lightbox { position: fixed; inset: 0; background: rgba(0,0,0,.9); display: grid; place-items: center; z-index: 50; }
