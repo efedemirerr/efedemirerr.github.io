@@ -18,7 +18,7 @@ window.SITE = {
       date: "Sep 2022 – Present",
       location: "İzmir, Turkey",
       bullets: [
-        "Key Coursework: Signals and Systems, Telecommunications, Electromagnetic Theory, Digital Communications, Circuit Analysis, Feedback Control Systems, Power Systems"
+        "<strong>Key Academic Focus:</strong> Signals and Systems, Telecommunications, Electromagnetic Theory, Digital Communications, Circuit Analysis, Feedback Control Systems, Power Systems"
       ]
     }
   ],
@@ -30,10 +30,10 @@ window.SITE = {
       date: "Jun 2026 – Aug 2026",
       location: "Ankara, Turkey",
       bullets: [
-        "Engineered an automated Cartesian X-Y planar antenna scanning system with a custom C# / .NET Windows Forms GUI, integrating G-Code protocols and hardware limit switch safety interlocks.",
-        "Developed an independent API-based control application for the Harogic NXN400 Real-Time Spectrum Analyzer over Ethernet/TCP, featuring automated RBW selection and a proprietary real-time Peak Search algorithm.",
-        "Conducted RF component characterization, amplifier gain measurements, and P1dB compression testing using Vector Network Analyzers (VNA) with calibrated reference planes shifted to cable ends.",
-        "Participated in Near-Field anechoic chamber measurements, RF absorber material performance characterization via Arch Testing, and hardware assembly of phased-array antenna continuous test fixtures (STM32, VNA, SP3T switch)."
+        "<strong>Motion Control & GUI:</strong> Engineered an automated Cartesian X-Y planar antenna scanning system with a custom C# / .NET Windows Forms GUI, integrating GRBL G-Code protocols and hardware limit switch safety interlocks.",
+        "<strong>Spectrum Analyzer API:</strong> Developed an independent API-based control application for the Harogic NXN400 Real-Time Spectrum Analyzer over Ethernet/TCP, featuring automated RBW selection and a proprietary real-time Peak Search algorithm.",
+        "<strong>RF Characterization:</strong> Conducted RF component characterization, amplifier gain measurements, and P1dB compression testing using Vector Network Analyzers (VNA) with calibrated reference planes shifted to cable ends.",
+        "<strong>Phased Array & Chamber:</strong> Participated in Near-Field anechoic chamber measurements, RF absorber material performance characterization via Arch Testing, and hardware assembly of phased-array antenna continuous test fixtures (STM32, VNA, SP3T switch)."
       ]
     },
     {
@@ -42,10 +42,10 @@ window.SITE = {
       date: "Jul 2025 – Aug 2025 & Aug 2026 – Sep 2026",
       location: "İzmir, Turkey",
       bullets: [
-        "Conducted solar power plant (GES) electrical engineering, single-line diagram drafting (AutoCAD), and production yield simulations using PVsyst and ETAP.",
-        "Performed grounding resistance testing, residual current device (RCD) verification, and periodic inspection workflows under High Voltage Operating Responsibility.",
-        "Designed reactive power compensation panels, calculated capacitor bank sizing, and configured reactive power control relays.",
-        "Supported power calculations, cable cross-section selection, and physical installation of EV charging stations and smart grid energy storage infrastructure."
+        "<strong>Solar PV Engineering:</strong> Conducted solar power plant (GES) electrical engineering, single-line diagram drafting (AutoCAD), and production yield simulations using PVsyst and ETAP.",
+        "<strong>Safety & Inspection:</strong> Performed grounding resistance testing, residual current device (RCD) verification, and periodic inspection workflows under High Voltage Operating Responsibility.",
+        "<strong>Power Factor Compensation:</strong> Designed reactive power compensation panels, calculated capacitor bank sizing, and configured reactive power control relays.",
+        "<strong>Grid & Storage:</strong> Supported power calculations, cable cross-section selection, and physical installation of EV charging stations and smart grid energy storage infrastructure."
       ]
     }
   ],
@@ -121,8 +121,13 @@ window.SITE = {
     {
       title: "Automated CNC Antenna Scanning Test System & Control GUI",
       date: "2026",
-      description:
-        "An automated Cartesian X-Y planar antenna scanning test platform engineered for ASELSAN REHİS Test Centers Directorate. Developed a C# / .NET Windows Forms GUI communicating over asynchronous Serial Port (115200 Baud) to an Arduino Uno and CNC Shield V3 running GRBL firmware. Implemented dynamic G-Code stream generation (G90/G91/G92/G1), centered grid coordinate mapping, and a multi-threaded BackgroundWorker architecture preventing UI lockup. Integrated 4 mechanical Normally-Closed (NC) limit switches for hardware-level collision prevention (hard limits trigger instant GRBL alarm and motor power cutoff), complemented by real-time bitmap scanning visualization and feedrate-calibrated motion delays.",
+      summary: "Autonomous Cartesian X-Y planar antenna scanning system engineered for ASELSAN REHİS Test Centers Directorate.",
+      bullets: [
+        "<strong>Hardware & Motion Control:</strong> Interfaced PC with Arduino Uno + CNC Shield V3 running GRBL firmware over asynchronous Serial Port (115200 Baud).",
+        "<strong>G-Code Protocol:</strong> Implemented real-time G-Code stream generation (G90/G91/G92/G1) with centered grid coordinate pathway calculations.",
+        "<strong>Hardware Safety Interlocks:</strong> Integrated 4 mechanical Normally-Closed (NC) limit switches for hardware-level collision prevention, triggering instant GRBL ALARM mode and motor cutoff.",
+        "<strong>Multi-Threaded Execution:</strong> Designed asynchronous BackgroundWorker threads eliminating UI freezing, paired with live bitmap scan visualization and feedrate-calibrated motion delays."
+      ],
       tags: ["C#", ".NET", "GRBL", "G-Code", "Arduino", "Antenna Testing", "Hardware Interfacing", "Test Automation"],
       images: [
         "assets/img/projects/cnc-scanner-gui.png",
@@ -136,8 +141,13 @@ window.SITE = {
     {
       title: "Harogic NXN400 Real-Time Spectrum Analyzer API & Custom GUI",
       date: "2026",
-      description:
-        "A dedicated C# desktop application and custom GUI developed for the Harogic NXN400 high-performance real-time spectrum analyzer at ASELSAN REHİS. Interfaced directly via the manufacturer's native C/C++ API (HtraApi) over Ethernet (TCP/IPv4, Port 5000), handling robust IP packet parsing, API boot profiling, and persistent hardware session management. Designed intelligent parameter controls with dynamic frequency span and automatic Resolution Bandwidth (RBW) tuning. Designed and integrated a proprietary real-time Peak Search algorithm detecting frequency and power peaks above a calibrated noise floor (-70 dBm) to separate true signals from background noise during RF sniffing, validated against official reference software.",
+      summary: "Dedicated C# desktop application and custom GUI interfacing directly with the Harogic NXN400 Real-Time Spectrum Analyzer at ASELSAN REHİS.",
+      bullets: [
+        "<strong>Native API Integration:</strong> Interfaced natively via manufacturer C/C++ API (HtraApi) over Ethernet TCP/IPv4 (Port 5000) with robust IP parsing and persistent hardware session control.",
+        "<strong>Parameter Management:</strong> Implemented dynamic frequency range configuration (Start/Stop, Center, Span) with automated Resolution Bandwidth (RBW) tuning.",
+        "<strong>Proprietary Peak Search:</strong> Designed real-time peak detection isolating carrier frequencies above calibrated noise floor (-70 dBm) to separate true signals from ambient RF noise.",
+        "<strong>Laboratory Benchmarking:</strong> Conducted comparative validation against manufacturer reference software, verifying measurement accuracy in defense testing environments."
+      ],
       tags: ["C#", "Harogic API", "Spectrum Analyzer", "Ethernet / TCP", "Peak Search Algorithm", "RF Sniffing", "Signal Processing"],
       images: [
         "assets/img/projects/harogic-spectrum-gui.png",
@@ -150,8 +160,13 @@ window.SITE = {
     {
       title: "Ultrasonic Ticketing System: Seamless & Offline Access Control",
       date: "2026",
-      description:
-        "An acoustic, near-ultrasound (18–22 kHz) communication protocol enabling frictionless, offline access control and ticketing without requiring cellular data, internet, or proprietary NFC hardware. Utilizes standard smartphone audio transducers (speakers and microphones), remaining inaudible to human ears. Developed a full end-to-end digital communications simulation in MATLAB incorporating bit-level token synthesis, Barker code frame synchronization, and Binary Frequency Shift Keying (BFSK) modulation. Modeled a realistic multipath fading channel (two-ray model), hardware frequency limitations, and Doppler shifts, paired with a DSP quadrature mixer receiver, envelope detection, parity checks, and comprehensive BER/PSR waterfall performance analysis.",
+      summary: "Near-ultrasound (18–22 kHz) acoustic communication protocol enabling offline, zero-infrastructure access control without cellular data, internet, or NFC.",
+      bullets: [
+        "<strong>Acoustic Transducers:</strong> Utilized standard commercial smartphone speakers and microphones to transmit encrypted access tokens completely inaudible to human ears.",
+        "<strong>Digital Modulation:</strong> Developed full MATLAB DSP pipeline featuring bit-level token synthesis, Barker code frame synchronization, and Binary Frequency Shift Keying (BFSK).",
+        "<strong>Channel Simulation:</strong> Modeled multipath propagation (Two-Ray Model), ambient acoustic interference, transducer frequency limits, and motion-induced Doppler shifts.",
+        "<strong>DSP Receiver & Validation:</strong> Built quadrature mixer receiver with envelope detection, parity verification, and comprehensive BER/PSR waterfall performance analysis."
+      ],
       tags: ["MATLAB", "Digital Communications", "BFSK Modulation", "Acoustic Channel Modeling", "DSP", "Barker Code", "Offline Auth"],
       images: [
         "assets/img/projects/ultrasonic-system-arch.jpeg",
@@ -164,8 +179,13 @@ window.SITE = {
     {
       title: "SolarOPA: Autonomous AI-Powered Solar Plant Monitoring & Telemetry Engine",
       date: "2026",
-      description:
-        "An autonomous, closed-loop telemetry and operational intelligence platform engineered for commercial solar power plants (GES) utilizing Sungrow iSolarCloud infrastructure. Connects to the official Sungrow OpenAPI via OAuth 2.0 token management, streaming real-time multi-inverter generation, DC/AC voltages, and grid status into a local SQLite time-series database. Computes scientific Fleet Performance Ratio (PR) modeled against a dynamic solar irradiance curve. Integrates Google Gemini AI with prompt engineering to synthesize multi-point plant telemetry into actionable diagnostic summaries and custom HTML/CSS report formats, automatically dispatched every evening at 20:00 via SMTP email.",
+      summary: "Autonomous closed-loop telemetry and operational intelligence platform for commercial solar power plants (GES) utilizing Sungrow iSolarCloud infrastructure.",
+      bullets: [
+        "<strong>OpenAPI Telemetry:</strong> Connected to Sungrow OpenAPI via OAuth 2.0 token management, streaming real-time multi-inverter generation, DC/AC voltages, and grid status.",
+        "<strong>Local Database Architecture:</strong> Architected local SQLite time-series database storing minute-by-minute telemetry, inverter mappings, and grid fault histories.",
+        "<strong>Fleet PR Modeling:</strong> Computed scientific Fleet Performance Ratio (PR) modeled against dynamic solar irradiance curves while filtering out plant anomalies.",
+        "<strong>Gemini AI Integration:</strong> Prompt-engineered Google Gemini AI to analyze multi-point telemetry, diagnose anomalies, and compile executive HTML reports delivered daily at 20:00 via SMTP email."
+      ],
       tags: ["Python", "REST API", "OAuth 2.0", "SQLite", "Google Gemini AI", "Prompt Engineering", "Solar Telemetry", "Automation"],
       images: [
         "assets/img/projects/solaropa-architecture.svg"
