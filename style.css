@@ -171,38 +171,6 @@ h3 {
   padding: 40px 44px;
 }
 
-.hero-layout {
-  display: flex;
-  gap: 36px;
-  align-items: center;
-}
-
-.avatar {
-  width: 146px;
-  height: 146px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 3px solid rgba(56, 189, 248, 0.65);
-  box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.18),
-              0 0 25px rgba(56, 189, 248, 0.28),
-              0 12px 30px -4px rgba(0, 0, 0, 0.7);
-  display: block;
-  flex-shrink: 0;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.avatar:hover {
-  transform: scale(1.04);
-  box-shadow: 0 0 0 6px rgba(56, 189, 248, 0.35),
-              0 0 35px rgba(56, 189, 248, 0.45),
-              0 16px 36px -4px rgba(0, 0, 0, 0.8);
-}
-
-.hero-content {
-  flex: 1;
-  min-width: 0;
-}
-
 .hero h1 {
   margin: 0;
   font-size: 2.7rem;
@@ -607,21 +575,8 @@ footer {
   .hero-card {
     padding: 32px 22px;
   }
-  .hero-layout {
-    flex-direction: column;
-    text-align: center;
-    gap: 22px;
-  }
-  .avatar {
-    width: 130px;
-    height: 130px;
-    margin: 0 auto;
-  }
   .hero h1 {
     font-size: 2.1rem;
-  }
-  .actions {
-    justify-content: center;
   }
   .two {
     grid-template-columns: 1fr;
