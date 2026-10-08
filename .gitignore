@@ -1,9 +1,13 @@
-# Local large source documents (optimized images and CV are stored in assets/)
+# Local large source documents (assets/ has downloadable CV & images)
 *.pptx
 *.slx
 *.docx
-Efe_Demirer_CV.pdf
+/Efe_Demirer_CV.pdf
 CNC Kurulum ve Yazılım Kılavuzu.pdf
 EFE_DEMİRER_STAJ_DEFTERİ.pdf
 Efe_Demirer_22070005009_Telecommunications_Project.pdf
+sertifika/
 page.html
+
+# Ensure assets/Efe_Demirer_CV.pdf is always tracked
+!assets/Efe_Demirer_CV.pdf
