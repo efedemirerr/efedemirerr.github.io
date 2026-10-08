@@ -33,9 +33,9 @@ const featuredCard = () => d.featured ? `
   <div class="card wide animated-frame">
     <div class="row">
       <h3>${esc(d.featured.title)}</h3>
-      <span class="meta">${d.featured.stats.map(esc).join(" · ")}</span>
+      <span class="meta featured-stats">${d.featured.stats.map(esc).join(" · ")}</span>
     </div>
-    <div class="tags" style="margin-top: 12px;">
+    <div class="tags" style="margin-top: 14px;">
       ${d.featured.tags.map((m) => `<span class="tag done">${esc(m)}</span>`).join("")}
     </div>
   </div>` : "";
