@@ -188,7 +188,7 @@ window.SITE = {
 
   certifications: [
     "ASELSAN – 'a Yetenek' Engineering Internship Program Certificate of Completion (2026)",
-    "Ministry of Industry and Technology & National Technology Academy – Chip Design (Çip Tasarımı) Specialization Program (2026)",
+    "Ministry of Industry and Technology & National Technology Academy – Chip Design (Çip Tasarımı) Specialization Certificate (2026)",
     "ROKETSAN – LEVEL UP AI: Smart Object Detection and Tracking with YOLO (2026)",
     "ROKETSAN – LEVEL UP AI: Autonomous AI Agent Development & Document Assistants (2026)",
     "Turkish Aerospace (TUSAŞ) – LIFT UP Industry-Oriented Capstone Projects Conference (2025)",
@@ -198,10 +198,10 @@ window.SITE = {
     "MathWorks – Simulink Fundamentals (Simulation & Model-Based Design, 2026)",
     "MathWorks – Simscape Onramp (Physical Multi-Domain Systems Modeling, 2026)",
     "MathWorks – Signal Processing Onramp (2025)",
-    "TÜBİTAK – 4006 Science and Society Project Award / Participant",
-    "Yaşar University School of Foreign Languages – English Proficiency Certificate (B2 Upper-Intermediate)",
-    "ASELSAN – Occupational Health and Safety (İSG) Certification (2026)",
-    "OPA Mühendislik – High Voltage Operating Responsibility & Inspection Training (2025)"
+    "MathWorks – Simulink Onramp (2025)",
+    "MathWorks – MATLAB Onramp (2025)",
+    "TÜBİTAK – 4006 Science and Society Support Program Certificate",
+    "ASELSAN – Occupational Health and Safety (İSG) Certification (2026)"
   ],
 
   languages: [
