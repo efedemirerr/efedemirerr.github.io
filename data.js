@@ -10,7 +10,7 @@ window.SITE = {
     github: "https://github.com/efedemirerr"
   },
   summary:
-    "Senior Electrical and Electronics Engineering student at Yaşar University (100% Scholarship, GPA: 3.73 / 4.00) with hands-on laboratory and field engineering experience across RF & antenna test automation, Cartesian motion control systems, hardware interfacing, and solar telemetry. At ASELSAN REHİS Test Centers Directorate, I developed automated C# GUI control platforms for planar Cartesian X-Y antenna scanners with GRBL G-Code and fail-safe limit switch interlocks, engineered Ethernet-based Harogic real-time spectrum analyzer API integrations featuring custom peak search algorithms, and conducted hands-on VNA calibrations and P1dB amplifier compression testing. At OPA Mühendislik, I designed solar PV electrical infrastructures and co-engineered the SolarOPA autonomous AI monitoring and telemetry system.",
+    "Senior Electrical and Electronics Engineering student at Yaşar University with hands-on laboratory and field engineering experience across RF & antenna test automation, Cartesian motion control systems, hardware interfacing, and solar telemetry. At ASELSAN REHİS Test Centers Directorate, I developed automated C# GUI control platforms for planar Cartesian X-Y antenna scanners with GRBL G-Code and fail-safe limit switch interlocks, engineered Ethernet-based Harogic real-time spectrum analyzer API integrations featuring custom peak search algorithms, and conducted hands-on VNA calibrations and P1dB amplifier compression testing. At OPA Mühendislik, I designed solar PV electrical infrastructures and co-engineered the SolarOPA autonomous AI monitoring and telemetry system.",
 
   education: [
     {
@@ -19,7 +19,6 @@ window.SITE = {
       date: "Sep 2022 – Present",
       location: "İzmir, Turkey",
       bullets: [
-        "100% Full Merit Scholarship | High Honor Student | Cumulative GPA: 3.73 / 4.00",
         "Key Coursework: Signals and Systems, Telecommunications, Electromagnetic Theory, Digital Communications, Circuit Analysis, Feedback Control Systems, Power Systems"
       ]
     },
@@ -28,9 +27,7 @@ window.SITE = {
       degree: "High School Diploma",
       date: "Sep 2018 – Jun 2022",
       location: "İzmir, Turkey",
-      bullets: [
-        "Graduation Grade: 96.89 / 100"
-      ]
+      bullets: []
     }
   ],
 
@@ -66,7 +63,7 @@ window.SITE = {
     title: "Engineering Highlights · ASELSAN REHİS & OPA Mühendislik",
     stats: [
       "ASELSAN REHİS Intern",
-      "GPA: 3.73 / 4.00 (100% Scholarship)",
+      "RF & Microwave Testing",
       "Cartesian X-Y & RF Automation",
       "Solar Fleet AI Telemetry"
     ],
