@@ -9,7 +9,7 @@ window.SITE = {
     github: "https://github.com/efedemirerr"
   },
   summary:
-    "Senior Electrical and Electronics Engineering student at Yaşar University with hands-on laboratory and field engineering experience across RF & antenna test automation, Cartesian motion control systems, hardware interfacing, and solar telemetry. At ASELSAN REHİS Test Centers Directorate, I developed automated C# GUI control platforms for planar Cartesian X-Y antenna scanners with GRBL G-Code and fail-safe limit switch interlocks, engineered Ethernet-based Harogic real-time spectrum analyzer API integrations featuring custom peak search algorithms, and conducted hands-on VNA calibrations and P1dB amplifier compression testing. At OPA Mühendislik, I designed solar PV electrical infrastructures and co-engineered the SolarOPA autonomous AI monitoring and telemetry system.",
+    "Senior Electrical and Electronics Engineering student at Yaşar University specializing in RF test automation, hardware interfacing, and telemetry systems. Experienced in developing automated measurement platforms and C# control software at ASELSAN REHİS and OPA Mühendislik.",
 
   education: [
     {
