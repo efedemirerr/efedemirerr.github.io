@@ -1,7 +1,7 @@
 // Portfolio data for Efe Demirer
 window.SITE = {
   name: "Efe Demirer",
-  title: "Electrical & Electronics Engineering · RF & Test Automation",
+  title: "Candidate RF & Microwave Systems Engineer · Antennas & Test Automation",
   contact: {
     email: "efedemirer.tr@gmail.com",
     location: "İzmir, Turkey",
@@ -9,7 +9,7 @@ window.SITE = {
     github: "https://github.com/efedemirerr"
   },
   summary:
-    "Senior Electrical and Electronics Engineering student at Yaşar University specializing in RF test automation, hardware interfacing, and telemetry systems. Experienced in developing automated measurement platforms and C# control software at ASELSAN REHİS and OPA Mühendislik.",
+    "Senior Electrical and Electronics Engineering student at Yaşar University specializing in RF & Microwave systems, antenna radiation pattern testing, and high-frequency instrumentation automation. Laboratory and field experience at ASELSAN REHİS Test Centers Directorate conducting planar near-field antenna scanning, VNA 2-port calibrations, RF amplifier characterization, and real-time spectrum analysis.",
 
   education: [
     {
@@ -18,7 +18,7 @@ window.SITE = {
       date: "Sep 2022 – Present",
       location: "İzmir, Turkey",
       bullets: [
-        "<strong>Key Academic Focus:</strong> Signals and Systems, Telecommunications, Electromagnetic Theory, Digital Communications, Circuit Analysis, Feedback Control Systems, Power Systems"
+        "<strong>Key Academic Focus:</strong> Antennas and Propagation (EEE 4340), Electromagnetic Field Theory, Microwave & RF Measurement, Signals and Systems, Digital Communications, Circuit Analysis"
       ]
     }
   ],
@@ -52,51 +52,51 @@ window.SITE = {
 
   // Featured Engineering Highlights Card in Skills
   featured: {
-    title: "Engineering Highlights · ASELSAN REHİS & OPA Mühendislik",
+    title: "Core RF & Microwave Highlights · ASELSAN REHİS",
     stats: [
-      "ASELSAN REHİS Intern",
-      "RF & Microwave Testing",
-      "Cartesian X-Y & RF Automation",
-      "Solar Fleet AI Telemetry"
+      "ASELSAN REHİS RF Intern",
+      "Antennas & Near-Field Scanning",
+      "VNA & Spectrum Automation",
+      "P1dB Amplifier Compression"
     ],
     tags: [
-      "RF Component Characterization",
-      "Planar Near-Field Scanning",
-      "C# .NET GUI Development",
-      "Ethernet & Serial API Control",
-      "Digital Communications (BFSK)",
-      "AI-Driven Plant Telemetry"
+      "Antennas & Propagation",
+      "VNA 2-Port Calibration",
+      "Near-Field Anechoic Chambers",
+      "RF Power Amplifiers (P1dB)",
+      "NRL Arch Testing (Absorbers)",
+      "C# .NET Test Automation"
     ]
   },
 
   skills: [
     {
-      group: "Programming & Software",
-      items: ["C#", ".NET", "Windows Forms", "Python", "C/C++", "MATLAB", "Arduino IDE", "SQLite / SQL"]
-    },
-    {
-      group: "RF & Test Automation",
+      group: "RF & Microwave Engineering",
       items: [
-        "Test Automation",
-        "Hardware Interfacing",
-        "API Integration",
-        "SCPI & G-Code",
-        "VNA Calibration",
-        "Spectrum Analyzers",
-        "P1dB Compression",
-        "Near-Field Testing",
-        "Arch Testing"
+        "Antennas & Propagation",
+        "Vector Network Analyzers (VNA)",
+        "Real-Time Spectrum Analyzers",
+        "VNA Full 2-Port Calibration",
+        "P1dB Compression Testing",
+        "RF Component Characterization",
+        "Near-Field Anechoic Testing",
+        "NRL Arch Absorber Testing",
+        "S-Parameters & Impedance Matching"
       ]
     },
     {
-      group: "Motion & Hardware Control",
+      group: "RF Test Automation & Software",
+      items: ["C#", ".NET", "Windows Forms", "Python", "API Integration", "SCPI & G-Code", "Serial (RS-232)", "Ethernet TCP/IP", "MATLAB"]
+    },
+    {
+      group: "Motion & Scanning Hardware",
       items: [
         "Cartesian X-Y Scanners",
-        "Stepper Motors",
+        "Stepper Motor Control",
         "CNC Shield V3",
         "GRBL Firmware",
-        "Limit Switch Safety",
-        "STM32 Microcontrollers"
+        "Limit Switch Safety Interlocks",
+        "Arduino & STM32"
       ]
     },
     {
