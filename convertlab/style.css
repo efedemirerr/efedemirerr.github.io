@@ -336,6 +336,78 @@ body.theme-t {
   z-index: 10;
 }
 
+/* Category Groups Split (Engineering vs CS:GO Gameplay) */
+.category-groups-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.category-group-block {
+  background: rgba(10, 18, 28, 0.7);
+  border: 1px solid var(--theme-border);
+  padding: 12px 16px;
+  position: relative;
+}
+
+body.theme-t .category-group-block {
+  background: rgba(20, 14, 7, 0.7);
+}
+
+.category-group-block.game-group-block {
+  border-left: 4px solid var(--hud-gold);
+}
+
+.group-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+.group-badge {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  letter-spacing: 1px;
+}
+
+.group-badge.eng-badge {
+  background: rgba(92, 155, 230, 0.15);
+  color: var(--ct-primary);
+  border: 1px solid var(--ct-border-bright);
+}
+
+.group-badge.cs-badge {
+  background: rgba(255, 215, 0, 0.15);
+  color: var(--hud-gold);
+  border: 1px solid var(--hud-gold);
+}
+
+.group-title {
+  font-family: var(--font-teko);
+  font-size: 1.35rem;
+  letter-spacing: 2px;
+  color: var(--hud-white);
+  line-height: 1;
+}
+
+.group-subtitle {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--hud-gray);
+  margin-left: auto;
+}
+
+.tactical-nav-bar.group-nav {
+  margin-bottom: 0;
+  padding: 4px;
+  background: rgba(0, 0, 0, 0.35);
+}
+
 /* Category Navigation (Matches User Image + Counter-Strike Flare) */
 .tactical-nav-bar {
   display: flex;
@@ -344,7 +416,6 @@ body.theme-t {
   background: rgba(14, 23, 36, 0.9);
   border: 1px solid var(--theme-border);
   padding: 8px;
-  margin-bottom: 24px;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
   position: relative;
 }
@@ -368,11 +439,29 @@ body.theme-t {
   position: relative;
 }
 
-.nav-tab .tab-key {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  color: var(--theme-color);
-  opacity: 0.8;
+.fire-weapon-btn {
+  background: rgba(234, 60, 60, 0.15);
+  border: 1px solid #ea3c3c;
+  color: #ff6666;
+  font-family: var(--font-teko);
+  font-size: 1.15rem;
+  letter-spacing: 1px;
+  padding: 2px 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.15s ease;
+}
+
+.fire-weapon-btn:hover {
+  background: #ea3c3c;
+  color: #fff;
+  box-shadow: 0 0 12px rgba(234, 60, 60, 0.7);
+}
+
+.fire-weapon-btn:active {
+  transform: scale(0.95);
 }
 
 .nav-tab:hover {

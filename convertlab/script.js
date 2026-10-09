@@ -3,7 +3,7 @@
  * Comprehensive physics, NATO STANAG, Hammer Units & in-game metrics
  */
 
-// Tactical Web Audio Synthesizer (No external assets required)
+// Tactical CS:GO Audio Synthesizer (Realistic Gunshots, Defuse Wire Snips, Radio & Beeps)
 const TacticalAudio = {
   enabled: true,
   ctx: null,
@@ -13,6 +13,177 @@ const TacticalAudio = {
       this.ctx = new AudioContext();
     }
   },
+
+  // Helper: White/Pink noise buffer generator for gun blast impact & mechanical tails
+  createNoiseBuffer() {
+    if (!this.ctx) return null;
+    const bufferSize = this.ctx.sampleRate * 1.5;
+    const buffer = this.ctx.createBuffer(1, bufferSize, this.ctx.sampleRate);
+    const output = buffer.getChannelData(0);
+    for (let i = 0; i < bufferSize; i++) {
+      output[i] = Math.random() * 2 - 1;
+    }
+    return buffer;
+  },
+
+  // AK-47 Gunshot: Heavy crack, explosive mid-body, and metallic barrel reverb
+  playAK47() {
+    if (!this.enabled) return;
+    try {
+      this.init();
+      if (this.ctx.state === 'suspended') this.ctx.resume();
+      const now = this.ctx.currentTime;
+
+      // 1. Initial High Muzzle Crack
+      const osc = this.ctx.createOscillator();
+      const oscGain = this.ctx.createGain();
+      osc.type = 'sawtooth';
+      osc.frequency.setValueAtTime(450, now);
+      osc.frequency.exponentialRampToValueAtTime(50, now + 0.15);
+      oscGain.gain.setValueAtTime(0.4, now);
+      oscGain.gain.exponentialRampToValueAtTime(0.001, now + 0.18);
+      osc.connect(oscGain);
+      oscGain.connect(this.ctx.destination);
+      osc.start(now);
+      osc.stop(now + 0.18);
+
+      // 2. Heavy 7.62mm Explosive Blast (Filtered Noise)
+      const noise = this.ctx.createBufferSource();
+      noise.buffer = this.createNoiseBuffer();
+      const filter = this.ctx.createBiquadFilter();
+      filter.type = 'lowpass';
+      filter.frequency.setValueAtTime(3200, now);
+      filter.frequency.exponentialRampToValueAtTime(250, now + 0.4);
+
+      const noiseGain = this.ctx.createGain();
+      noiseGain.gain.setValueAtTime(0.8, now);
+      noiseGain.gain.exponentialRampToValueAtTime(0.001, now + 0.45);
+
+      noise.connect(filter);
+      filter.connect(noiseGain);
+      noiseGain.connect(this.ctx.destination);
+      noise.start(now);
+      noise.stop(now + 0.45);
+
+      // 3. Sub-bass Punch (Chest Impact)
+      const sub = this.ctx.createOscillator();
+      const subGain = this.ctx.createGain();
+      sub.type = 'sine';
+      sub.frequency.setValueAtTime(140, now);
+      sub.frequency.exponentialRampToValueAtTime(30, now + 0.25);
+      subGain.gain.setValueAtTime(0.7, now);
+      subGain.gain.exponentialRampToValueAtTime(0.001, now + 0.25);
+      sub.connect(subGain);
+      subGain.connect(this.ctx.destination);
+      sub.start(now);
+      sub.stop(now + 0.25);
+    } catch (e) {}
+  },
+
+  // AWP Gunshot: Massive thunderous supersonic crack & huge echoing boom
+  playAWP() {
+    if (!this.enabled) return;
+    try {
+      this.init();
+      if (this.ctx.state === 'suspended') this.ctx.resume();
+      const now = this.ctx.currentTime;
+
+      // Heavy Boom
+      const noise = this.ctx.createBufferSource();
+      noise.buffer = this.createNoiseBuffer();
+      const filter = this.ctx.createBiquadFilter();
+      filter.type = 'bandpass';
+      filter.frequency.setValueAtTime(800, now);
+      filter.Q.value = 1.2;
+
+      const noiseGain = this.ctx.createGain();
+      noiseGain.gain.setValueAtTime(1.0, now);
+      noiseGain.gain.exponentialRampToValueAtTime(0.0001, now + 0.85);
+
+      noise.connect(filter);
+      filter.connect(noiseGain);
+      noiseGain.connect(this.ctx.destination);
+      noise.start(now);
+      noise.stop(now + 0.85);
+
+      // Sub Bass Shockwave
+      const osc = this.ctx.createOscillator();
+      const oscGain = this.ctx.createGain();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(180, now);
+      osc.frequency.exponentialRampToValueAtTime(20, now + 0.5);
+      oscGain.gain.setValueAtTime(0.9, now);
+      oscGain.gain.exponentialRampToValueAtTime(0.001, now + 0.5);
+      osc.connect(oscGain);
+      oscGain.connect(this.ctx.destination);
+      osc.start(now);
+      osc.stop(now + 0.5);
+    } catch (e) {}
+  },
+
+  // Realistic C4 Defuse Sound: Sequential Wire Snip Clicks + High Electronic Tone
+  playDefuseSound() {
+    if (!this.enabled) return;
+    try {
+      this.init();
+      if (this.ctx.state === 'suspended') this.ctx.resume();
+      const now = this.ctx.currentTime;
+
+      // Kit Pliers / Wire Snip #1
+      this.playSnip(now);
+      // Wire Snip #2
+      this.playSnip(now + 0.12);
+      // Radio Confirmation Beep
+      this.playBeep(920, 0.08, 'triangle');
+    } catch (e) {}
+  },
+
+  playSnip(time) {
+    const osc = this.ctx.createOscillator();
+    const gain = this.ctx.createGain();
+    osc.type = 'triangle';
+    osc.frequency.setValueAtTime(2200, time);
+    osc.frequency.exponentialRampToValueAtTime(400, time + 0.04);
+    gain.gain.setValueAtTime(0.3, time);
+    gain.gain.exponentialRampToValueAtTime(0.001, time + 0.04);
+    osc.connect(gain);
+    gain.connect(this.ctx.destination);
+    osc.start(time);
+    osc.stop(time + 0.04);
+  },
+
+  // Bomb Tick (Authentic High Pitch 1000Hz Square Beep)
+  playC4Tick() {
+    this.playBeep(1000, 0.035, 'square');
+  },
+
+  // Tactical Menu Switching / Weapon Select
+  playSwitch() {
+    this.playBeep(750, 0.04, 'triangle');
+  },
+
+  // Headshot Crunch / Kill Confirmation
+  playHeadshot() {
+    if (!this.enabled) return;
+    try {
+      this.init();
+      if (this.ctx.state === 'suspended') this.ctx.resume();
+      const now = this.ctx.currentTime;
+      // Helmet Dink
+      const osc = this.ctx.createOscillator();
+      const gain = this.ctx.createGain();
+      osc.type = 'square';
+      osc.frequency.setValueAtTime(2400, now);
+      osc.frequency.exponentialRampToValueAtTime(600, now + 0.08);
+      gain.gain.setValueAtTime(0.25, now);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.08);
+      osc.connect(gain);
+      gain.connect(this.ctx.destination);
+      osc.start(now);
+      osc.stop(now + 0.08);
+    } catch (e) {}
+  },
+
   playBeep(freq = 880, duration = 0.05, type = 'sine') {
     if (!this.enabled) return;
     try {
@@ -22,24 +193,13 @@ const TacticalAudio = {
       const gain = this.ctx.createGain();
       osc.type = type;
       osc.frequency.setValueAtTime(freq, this.ctx.currentTime);
-      gain.gain.setValueAtTime(0.08, this.ctx.currentTime);
+      gain.gain.setValueAtTime(0.12, this.ctx.currentTime);
       gain.gain.exponentialRampToValueAtTime(0.0001, this.ctx.currentTime + duration);
       osc.connect(gain);
       gain.connect(this.ctx.destination);
       osc.start();
       osc.stop(this.ctx.currentTime + duration);
-    } catch (e) {
-      // Audio not permitted yet
-    }
-  },
-  playDefuseBeep() {
-    this.playBeep(1200, 0.04, 'square');
-  },
-  playSwitch() {
-    this.playBeep(600, 0.06, 'triangle');
-  },
-  playHeadshot() {
-    this.playBeep(1400, 0.1, 'sawtooth');
+    } catch (e) {}
   }
 };
 
@@ -487,11 +647,45 @@ const App = {
       TacticalAudio.playSwitch();
     });
 
-    // C4 Defusal Button
+    // Weapon Test Fire Button (Plays AK-47, AWP or Weapon Shot)
+    const fireBtn = document.getElementById('btn-fire-weapon');
+    if (fireBtn) {
+      fireBtn.addEventListener('click', () => {
+        this.fireActiveWeapon();
+      });
+    }
+
+    // C4 Defusal Button (Authentic Defuse Wire Snipping Sounds)
     document.getElementById('btn-defuse').addEventListener('click', () => {
-      TacticalAudio.playDefuseBeep();
+      TacticalAudio.playDefuseSound();
       this.defuseC4();
     });
+  },
+
+  fireActiveWeapon() {
+    const cat = CONVERSION_DATA[this.currentCategory];
+    const weaponName = cat?.weapon?.name || "";
+
+    if (weaponName.includes("AWP")) {
+      TacticalAudio.playAWP();
+      this.showKillfeed("AWP Sniper", "🎯", "One Shot Kill");
+    } else if (weaponName.includes("AK-47")) {
+      TacticalAudio.playAK47();
+      this.showKillfeed("AK-47 Spray", "💥", "Headshot + Spray");
+    } else {
+      // General Heavy Fire
+      TacticalAudio.playAK47();
+      this.showKillfeed("Tactical Fire", "🔫", "Target Hit");
+    }
+
+    // Screen Shake recoil effect
+    const weaponBox = document.getElementById('intel-weapon');
+    if (weaponBox) {
+      weaponBox.style.transform = 'scale(0.97) rotate(-0.5deg)';
+      setTimeout(() => {
+        weaponBox.style.transform = 'scale(1) rotate(0deg)';
+      }, 90);
+    }
   },
 
   switchCategory(catKey) {

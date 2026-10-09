@@ -68,57 +68,68 @@
   <!-- Main Container -->
   <div class="tactical-container">
 
-    <!-- Category Command Bar (The Tabs Requested in Image + CSGO Expansion) -->
-    <nav class="tactical-nav-bar" id="category-nav">
-      <!-- Standard Measurements from user screenshot -->
-      <button class="nav-tab active" data-cat="length">
-        <span class="tab-key">[1]</span>
-        <span class="tab-icon">📏</span>
-        <span class="tab-label">Length</span>
-      </button>
-      <button class="nav-tab" data-cat="mass">
-        <span class="tab-key">[2]</span>
-        <span class="tab-icon">⚖️</span>
-        <span class="tab-label">Mass</span>
-      </button>
-      <button class="nav-tab" data-cat="pressure">
-        <span class="tab-key">[3]</span>
-        <span class="tab-icon">⏱️</span>
-        <span class="tab-label">Pressure</span>
-      </button>
-      <button class="nav-tab" data-cat="energy">
-        <span class="tab-key">[4]</span>
-        <span class="tab-icon">⚡</span>
-        <span class="tab-label">Energy</span>
-      </button>
-      <button class="nav-tab" data-cat="temperature">
-        <span class="tab-key">[5]</span>
-        <span class="tab-icon">🌡️</span>
-        <span class="tab-label">Temperature</span>
-      </button>
+    <!-- Grouped Tactical Nav Bar: 2 Distinct Sections -->
+    <div class="category-groups-wrapper">
 
-      <!-- Advanced Engineering & Tactical Additions -->
-      <button class="nav-tab" data-cat="velocity">
-        <span class="tab-key">[6]</span>
-        <span class="tab-icon">🚀</span>
-        <span class="tab-label">Velocity / Speed</span>
-      </button>
-      <button class="nav-tab" data-cat="frequency">
-        <span class="tab-key">[7]</span>
-        <span class="tab-icon">📡</span>
-        <span class="tab-label">RF / Frequency</span>
-      </button>
-      <button class="nav-tab" data-cat="csgo_sens">
-        <span class="tab-key">[8]</span>
-        <span class="tab-icon">🎯</span>
-        <span class="tab-label">Mouse eDPI & Sens</span>
-      </button>
-      <button class="nav-tab" data-cat="csgo_economy">
-        <span class="tab-key">[9]</span>
-        <span class="tab-icon">💰</span>
-        <span class="tab-label">Buy Calculator</span>
-      </button>
-    </nav>
+      <!-- GROUP 1: Mühendislik & Fiziksel Ölçümler (Engineering & Physics Matrix) -->
+      <div class="category-group-block">
+        <div class="group-header">
+          <span class="group-badge eng-badge">ENGINEERING DISCIPLINE</span>
+          <span class="group-title">MÜHENDİSLİK &amp; FİZİKSEL DÖNÜŞÜMLER</span>
+          <span class="group-subtitle">SI Metric · Imperial · RF Electromagnetics</span>
+        </div>
+        <nav class="tactical-nav-bar group-nav" id="nav-engineering">
+          <button class="nav-tab active" data-cat="length">
+            <span class="tab-icon">📏</span>
+            <span class="tab-label">Length</span>
+          </button>
+          <button class="nav-tab" data-cat="mass">
+            <span class="tab-icon">⚖️</span>
+            <span class="tab-label">Mass</span>
+          </button>
+          <button class="nav-tab" data-cat="pressure">
+            <span class="tab-icon">⏱️</span>
+            <span class="tab-label">Pressure</span>
+          </button>
+          <button class="nav-tab" data-cat="energy">
+            <span class="tab-icon">⚡</span>
+            <span class="tab-label">Energy</span>
+          </button>
+          <button class="nav-tab" data-cat="temperature">
+            <span class="tab-icon">🌡️</span>
+            <span class="tab-label">Temperature</span>
+          </button>
+          <button class="nav-tab" data-cat="frequency">
+            <span class="tab-icon">📡</span>
+            <span class="tab-label">RF / Frequency</span>
+          </button>
+        </nav>
+      </div>
+
+      <!-- GROUP 2: CS:GO & Taktik Oyun Metrikleri (Tactical Game & Engine Telemetry) -->
+      <div class="category-group-block game-group-block">
+        <div class="group-header">
+          <span class="group-badge cs-badge">VALVE SOURCE ENGINE</span>
+          <span class="group-title">CS:GO &amp; TAKTİK OYUN METRİKLERİ</span>
+          <span class="group-subtitle">Source Engine Ballistics · eDPI · Economy</span>
+        </div>
+        <nav class="tactical-nav-bar group-nav" id="nav-gameplay">
+          <button class="nav-tab" data-cat="velocity">
+            <span class="tab-icon">🚀</span>
+            <span class="tab-label">In-Game Velocity</span>
+          </button>
+          <button class="nav-tab" data-cat="csgo_sens">
+            <span class="tab-icon">🎯</span>
+            <span class="tab-label">Mouse eDPI &amp; Sens</span>
+          </button>
+          <button class="nav-tab" data-cat="csgo_economy">
+            <span class="tab-icon">💰</span>
+            <span class="tab-label">Buy &amp; Loss Economy</span>
+          </button>
+        </nav>
+      </div>
+
+    </div>
 
     <!-- Main Workspace Grid -->
     <div class="workspace-grid">
@@ -231,8 +242,13 @@
           <!-- Weapon Spec Card -->
           <div class="intel-card weapon-card" id="intel-weapon">
             <div class="intel-card-header">
-              <span class="weapon-rarity covert">COVERT</span>
-              <span class="weapon-name" id="weapon-title">AWP | DRAGON LORE</span>
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <span class="weapon-rarity covert">COVERT</span>
+                <span class="weapon-name" id="weapon-title">AWP | DRAGON LORE</span>
+              </div>
+              <button class="fire-weapon-btn" id="btn-fire-weapon" title="Fire Weapon (CS:GO Gunshot Sound)">
+                <span>💥</span> ATEŞ ET
+              </button>
             </div>
             <div class="weapon-preview-box">
               <div class="crosshair-overlay"></div>
