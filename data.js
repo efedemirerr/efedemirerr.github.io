@@ -31,7 +31,7 @@ window.SITE = {
       location: "Ankara, Turkey",
       bullets: [
         "<strong>Motion Control & GUI:</strong> Engineered an automated Cartesian X-Y planar antenna scanning system with a custom C# / .NET Windows Forms GUI, integrating GRBL G-Code protocols and hardware limit switch safety interlocks.",
-        "<strong>Spectrum Analyzer API:</strong> Developed an independent API-based control application for the Harogic NXN400 Real-Time Spectrum Analyzer over Ethernet/TCP, featuring automated RBW selection and a proprietary real-time Peak Search algorithm.",
+        "<strong>Spectrum Analyzer API:</strong> Developed an independent API-based control application for the Real-Time Spectrum Analyzer over Ethernet/TCP, featuring automated RBW selection and a proprietary real-time Peak Search algorithm.",
         "<strong>RF Characterization:</strong> Conducted RF component characterization, amplifier gain measurements, and P1dB compression testing using Vector Network Analyzers (VNA) with calibrated reference planes shifted to cable ends.",
         "<strong>Phased Array & Chamber:</strong> Participated in Near-Field anechoic chamber measurements, RF absorber material performance characterization via Arch Testing, and hardware assembly of phased-array antenna continuous test fixtures (STM32, VNA, SP3T switch)."
       ]
@@ -139,16 +139,16 @@ window.SITE = {
       link: ""
     },
     {
-      title: "Harogic NXN400 Real-Time Spectrum Analyzer API & Custom GUI",
+      title: "Real-Time Spectrum Analyzer API & Custom GUI",
       date: "2026",
-      summary: "Dedicated C# desktop application and custom GUI interfacing directly with the Harogic NXN400 Real-Time Spectrum Analyzer at ASELSAN REHİS.",
+      summary: "Dedicated C# desktop application and custom GUI interfacing directly with a Real-Time Spectrum Analyzer at ASELSAN REHİS.",
       bullets: [
-        "<strong>Native API Integration:</strong> Interfaced natively via manufacturer C/C++ API (HtraApi) over Ethernet TCP/IPv4 (Port 5000) with robust IP parsing and persistent hardware session control.",
+        "<strong>Native API Integration:</strong> Interfaced natively via manufacturer C/C++ API over Ethernet TCP/IPv4 (Port 5000) with robust IP parsing and persistent hardware session control.",
         "<strong>Parameter Management:</strong> Implemented dynamic frequency range configuration (Start/Stop, Center, Span) with automated Resolution Bandwidth (RBW) tuning.",
         "<strong>Proprietary Peak Search:</strong> Designed real-time peak detection isolating carrier frequencies above calibrated noise floor (-70 dBm) to separate true signals from ambient RF noise.",
         "<strong>Laboratory Benchmarking:</strong> Conducted comparative validation against manufacturer reference software, verifying measurement accuracy in defense testing environments."
       ],
-      tags: ["C#", "Harogic API", "Spectrum Analyzer", "Ethernet / TCP", "Peak Search Algorithm", "RF Sniffing", "Signal Processing"],
+      tags: ["C#", "Spectrum Analyzer API", "Spectrum Analyzer", "Ethernet / TCP", "Peak Search Algorithm", "RF Sniffing", "Signal Processing"],
       images: [
         "assets/img/projects/harogic-spectrum-gui.png",
         "assets/img/projects/harogic-params-filter.png",
