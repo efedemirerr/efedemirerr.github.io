@@ -528,10 +528,25 @@ const App = {
   inputVal: 100,
   fromUnit: 'hammer',
   toUnit: 'm',
+  roundSeconds: 105,
 
   init() {
     this.bindDomEvents();
     this.loadCategory('length');
+    this.startRoundTimer();
+  },
+
+  startRoundTimer() {
+    setInterval(() => {
+      this.roundSeconds--;
+      if (this.roundSeconds <= 0) this.roundSeconds = 115;
+      const m = Math.floor(this.roundSeconds / 60);
+      const s = this.roundSeconds % 60;
+      const timerEl = document.getElementById('round-timer');
+      if (timerEl) {
+        timerEl.textContent = `${m}:${s < 10 ? '0' : ''}${s}`;
+      }
+    }, 1000);
   },
 
   bindDomEvents() {
