@@ -521,38 +521,33 @@ const CONVERSION_DATA = {
   }
 };
 
-// Application State
+// Application State & Controller
 const App = {
   currentCategory: 'length',
   precision: 4,
   inputVal: 100,
   fromUnit: 'hammer',
   toUnit: 'm',
-  c4TimerInterval: null,
-  c4Seconds: 40.0,
-  roundSeconds: 105,
 
   init() {
     this.bindDomEvents();
     this.loadCategory('length');
-    this.startRoundTimer();
-    this.startC4Ticker();
   },
 
   bindDomEvents() {
     // Category Nav Tabs
     const tabs = document.querySelectorAll('.nav-tab');
     tabs.forEach(tab => {
-      tab.addEventListener('click', (e) => {
+      tab.addEventListener('click', () => {
         TacticalAudio.playSwitch();
         const cat = tab.getAttribute('data-cat');
         this.switchCategory(cat);
       });
     });
 
-    // Keyboard Shortcuts 1-9 for tabs
+    // Keyboard Shortcuts 1-9 for quick category selection
     window.addEventListener('keydown', (e) => {
-      if (document.activeElement.tagName === 'INPUT') return;
+      if (document.activeElement && ['INPUT', 'SELECT', 'TEXTAREA'].includes(document.activeElement.tagName)) return;
       const num = parseInt(e.key, 10);
       if (num >= 1 && num <= 9) {
         const catKeys = Object.keys(CONVERSION_DATA);
@@ -564,53 +559,76 @@ const App = {
 
     // Inputs & Selects
     const inputEl = document.getElementById('input-val');
-    inputEl.addEventListener('input', (e) => {
-      TacticalAudio.playBeep(450, 0.02);
-      this.inputVal = parseFloat(e.target.value) || 0;
-      this.recalculate();
-    });
+    if (inputEl) {
+      inputEl.addEventListener('input', (e) => {
+        TacticalAudio.playBeep(450, 0.02);
+        this.inputVal = parseFloat(e.target.value) || 0;
+        this.recalculate();
+      });
+    }
 
-    document.getElementById('select-from').addEventListener('change', (e) => {
-      TacticalAudio.playSwitch();
-      this.fromUnit = e.target.value;
-      this.recalculate();
-    });
+    const selectFrom = document.getElementById('select-from');
+    if (selectFrom) {
+      selectFrom.addEventListener('change', (e) => {
+        TacticalAudio.playSwitch();
+        this.fromUnit = e.target.value;
+        this.recalculate();
+      });
+    }
 
-    document.getElementById('select-to').addEventListener('change', (e) => {
-      TacticalAudio.playSwitch();
-      this.toUnit = e.target.value;
-      this.recalculate();
-    });
+    const selectTo = document.getElementById('select-to');
+    if (selectTo) {
+      selectTo.addEventListener('change', (e) => {
+        TacticalAudio.playSwitch();
+        this.toUnit = e.target.value;
+        this.recalculate();
+      });
+    }
 
     // Swap Button
-    document.getElementById('btn-swap').addEventListener('click', () => {
-      TacticalAudio.playHeadshot();
-      const temp = this.fromUnit;
-      this.fromUnit = this.toUnit;
-      this.toUnit = temp;
-      this.updateSelects();
-      this.recalculate();
-      this.showKillfeed("ConvertLab", "⇄ SWAPPED", "Units Inverted");
-    });
+    const swapBtn = document.getElementById('btn-swap');
+    if (swapBtn) {
+      swapBtn.addEventListener('click', () => {
+        TacticalAudio.playHeadshot();
+        const temp = this.fromUnit;
+        this.fromUnit = this.toUnit;
+        this.toUnit = temp;
+        this.updateSelects();
+        this.recalculate();
+        this.showToast('⇄ Units swapped');
+        this.logStatus('UNITS INVERTED');
+      });
+    }
 
     // Clear Button
-    document.getElementById('btn-clear').addEventListener('click', () => {
-      TacticalAudio.playSwitch();
-      inputEl.value = '0';
-      this.inputVal = 0;
-      this.recalculate();
-      inputEl.focus();
-    });
+    const clearBtn = document.getElementById('btn-clear');
+    if (clearBtn && inputEl) {
+      clearBtn.addEventListener('click', () => {
+        TacticalAudio.playSwitch();
+        inputEl.value = '0';
+        this.inputVal = 0;
+        this.recalculate();
+        inputEl.focus();
+      });
+    }
 
     // Copy Button
-    document.getElementById('btn-copy').addEventListener('click', () => {
-      const out = document.getElementById('output-val').value;
-      navigator.clipboard.writeText(out).then(() => {
-        TacticalAudio.playBeep(1100, 0.08);
-        this.logStatus(`COPIED VALUE [${out}] TO CLIPBOARD`);
-        this.showKillfeed("Telemetry", "📋", "Copied to Clipboard");
+    const copyBtn = document.getElementById('btn-copy');
+    if (copyBtn) {
+      copyBtn.addEventListener('click', () => {
+        const out = document.getElementById('output-val')?.value || '';
+        if (out) {
+          navigator.clipboard.writeText(out).then(() => {
+            TacticalAudio.playBeep(1100, 0.08);
+            this.showToast(`📋 Copied: ${out}`);
+            this.logStatus(`COPIED VALUE [${out}] TO CLIPBOARD`);
+          }).catch(() => {
+            // Fallback for older browsers
+            this.showToast(`📋 Value: ${out}`);
+          });
+        }
       });
-    });
+    }
 
     // Precision Buttons
     document.querySelectorAll('.prec-btn').forEach(btn => {
@@ -618,73 +636,45 @@ const App = {
         TacticalAudio.playSwitch();
         document.querySelectorAll('.prec-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
-        this.precision = parseInt(btn.getAttribute('data-prec'), 10);
+        this.precision = parseInt(btn.getAttribute('data-prec'), 10) || 4;
         this.recalculate();
       });
     });
 
     // Team Faction Switchers
-    document.getElementById('btn-team-ct').addEventListener('click', () => {
-      TacticalAudio.playSwitch();
-      document.body.className = 'theme-ct';
-      document.getElementById('btn-team-ct').classList.add('active');
-      document.getElementById('btn-team-t').classList.remove('active');
-      this.logStatus("FACTION SWITCHED: COUNTER-TERRORIST (CT NAVY HUD)");
-    });
+    const ctBtn = document.getElementById('btn-team-ct');
+    const tBtn = document.getElementById('btn-team-t');
 
-    document.getElementById('btn-team-t').addEventListener('click', () => {
-      TacticalAudio.playSwitch();
-      document.body.className = 'theme-t';
-      document.getElementById('btn-team-t').classList.add('active');
-      document.getElementById('btn-team-ct').classList.remove('active');
-      this.logStatus("FACTION SWITCHED: TERRORIST (T RUST ORANGE HUD)");
-    });
-
-    // Audio Toggle
-    document.getElementById('sound-toggle').addEventListener('click', () => {
-      TacticalAudio.enabled = !TacticalAudio.enabled;
-      document.getElementById('sound-toggle').innerHTML = TacticalAudio.enabled ? "<span>🔊</span> AUDIO: ON" : "<span>🔇</span> AUDIO: MUTED";
-      TacticalAudio.playSwitch();
-    });
-
-    // Weapon Test Fire Button (Plays AK-47, AWP or Weapon Shot)
-    const fireBtn = document.getElementById('btn-fire-weapon');
-    if (fireBtn) {
-      fireBtn.addEventListener('click', () => {
-        this.fireActiveWeapon();
+    if (ctBtn) {
+      ctBtn.addEventListener('click', () => {
+        TacticalAudio.playSwitch();
+        document.body.className = 'theme-ct';
+        ctBtn.classList.add('active');
+        if (tBtn) tBtn.classList.remove('active');
+        this.logStatus('FACTION: COUNTER-TERRORIST (CT BLUE)');
       });
     }
 
-    // C4 Defusal Button (Authentic Defuse Wire Snipping Sounds)
-    document.getElementById('btn-defuse').addEventListener('click', () => {
-      TacticalAudio.playDefuseSound();
-      this.defuseC4();
-    });
-  },
-
-  fireActiveWeapon() {
-    const cat = CONVERSION_DATA[this.currentCategory];
-    const weaponName = cat?.weapon?.name || "";
-
-    if (weaponName.includes("AWP")) {
-      TacticalAudio.playAWP();
-      this.showKillfeed("AWP Sniper", "🎯", "One Shot Kill");
-    } else if (weaponName.includes("AK-47")) {
-      TacticalAudio.playAK47();
-      this.showKillfeed("AK-47 Spray", "💥", "Headshot + Spray");
-    } else {
-      // General Heavy Fire
-      TacticalAudio.playAK47();
-      this.showKillfeed("Tactical Fire", "🔫", "Target Hit");
+    if (tBtn) {
+      tBtn.addEventListener('click', () => {
+        TacticalAudio.playSwitch();
+        document.body.className = 'theme-t';
+        tBtn.classList.add('active');
+        if (ctBtn) ctBtn.classList.remove('active');
+        this.logStatus('FACTION: TERRORIST (T AMBER)');
+      });
     }
 
-    // Screen Shake recoil effect
-    const weaponBox = document.getElementById('intel-weapon');
-    if (weaponBox) {
-      weaponBox.style.transform = 'scale(0.97) rotate(-0.5deg)';
-      setTimeout(() => {
-        weaponBox.style.transform = 'scale(1) rotate(0deg)';
-      }, 90);
+    // Audio Toggle
+    const soundToggle = document.getElementById('sound-toggle');
+    if (soundToggle) {
+      soundToggle.addEventListener('click', () => {
+        TacticalAudio.enabled = !TacticalAudio.enabled;
+        soundToggle.innerHTML = TacticalAudio.enabled 
+          ? '<span id="sound-icon">🔊</span> <span class="btn-text">SOUND: ON</span>' 
+          : '<span id="sound-icon">🔇</span> <span class="btn-text">SOUND: OFF</span>';
+        if (TacticalAudio.enabled) TacticalAudio.playSwitch();
+      });
     }
   },
 
@@ -702,6 +692,7 @@ const App = {
 
   loadCategory(catKey) {
     const cat = CONVERSION_DATA[catKey];
+    if (!cat) return;
     const unitKeys = Object.keys(cat.units);
 
     // Set default units
@@ -709,18 +700,19 @@ const App = {
     this.toUnit = unitKeys[1] || unitKeys[0];
 
     // Update Headers
-    document.getElementById('current-cat-title').textContent = cat.title;
-    document.getElementById('current-cat-desc').textContent = cat.desc;
-    document.getElementById('formula-text').textContent = cat.formulaHint || "Linear Calibration";
+    const titleEl = document.getElementById('current-cat-title');
+    const descEl = document.getElementById('current-cat-desc');
+    const formulaEl = document.getElementById('formula-text');
+
+    if (titleEl) titleEl.textContent = cat.title;
+    if (descEl) descEl.textContent = cat.desc;
+    if (formulaEl) formulaEl.textContent = cat.formulaHint || 'Linear Calibration';
 
     // Update Select Dropdowns
     this.updateSelects();
 
     // Update Presets Grid
     this.renderPresets(cat.presets || []);
-
-    // Update Weapon Intel Box
-    this.renderWeaponIntel(cat.weapon);
 
     // Recalculate everything
     this.recalculate();
@@ -729,38 +721,47 @@ const App = {
 
   updateSelects() {
     const cat = CONVERSION_DATA[this.currentCategory];
+    if (!cat) return;
+
     const sFrom = document.getElementById('select-from');
     const sTo = document.getElementById('select-to');
 
-    sFrom.innerHTML = '';
-    sTo.innerHTML = '';
+    if (sFrom) sFrom.innerHTML = '';
+    if (sTo) sTo.innerHTML = '';
 
     Object.entries(cat.units).forEach(([key, u]) => {
-      const optFrom = document.createElement('option');
-      optFrom.value = key;
-      optFrom.textContent = `${u.name} (${u.sym})`;
-      if (key === this.fromUnit) optFrom.selected = true;
-      sFrom.appendChild(optFrom);
+      if (sFrom) {
+        const optFrom = document.createElement('option');
+        optFrom.value = key;
+        optFrom.textContent = `${u.name} (${u.sym})`;
+        if (key === this.fromUnit) optFrom.selected = true;
+        sFrom.appendChild(optFrom);
+      }
 
-      const optTo = document.createElement('option');
-      optTo.value = key;
-      optTo.textContent = `${u.name} (${u.sym})`;
-      if (key === this.toUnit) optTo.selected = true;
-      sTo.appendChild(optTo);
+      if (sTo) {
+        const optTo = document.createElement('option');
+        optTo.value = key;
+        optTo.textContent = `${u.name} (${u.sym})`;
+        if (key === this.toUnit) optTo.selected = true;
+        sTo.appendChild(optTo);
+      }
     });
 
-    document.getElementById('from-unit-code').textContent = cat.units[this.fromUnit]?.sym || '';
-    document.getElementById('to-unit-code').textContent = cat.units[this.toUnit]?.sym || '';
+    const fromCode = document.getElementById('from-unit-code');
+    const toCode = document.getElementById('to-unit-code');
+    if (fromCode) fromCode.textContent = cat.units[this.fromUnit]?.sym || '';
+    if (toCode) toCode.textContent = cat.units[this.toUnit]?.sym || '';
   },
 
   recalculate() {
     const cat = CONVERSION_DATA[this.currentCategory];
+    if (!cat) return;
     const uFrom = cat.units[this.fromUnit];
     const uTo = cat.units[this.toUnit];
 
     if (!uFrom || !uTo) return;
 
-    // Step 1: Convert input to base SI unit
+    // Step 1: Convert input to base unit
     const baseVal = uFrom.toBase(this.inputVal);
 
     // Step 2: Convert base to target unit
@@ -771,9 +772,13 @@ const App = {
       ? converted.toString()
       : converted.toFixed(this.precision);
 
-    document.getElementById('output-val').value = outStr;
-    document.getElementById('from-unit-code').textContent = uFrom.sym;
-    document.getElementById('to-unit-code').textContent = uTo.sym;
+    const outEl = document.getElementById('output-val');
+    if (outEl) outEl.value = outStr;
+
+    const fromCode = document.getElementById('from-unit-code');
+    const toCode = document.getElementById('to-unit-code');
+    if (fromCode) fromCode.textContent = uFrom.sym;
+    if (toCode) toCode.textContent = uTo.sym;
 
     // Step 3: Populate Multi-Unit Live Spread Matrix
     this.renderSpreadMatrix(baseVal);
@@ -782,6 +787,7 @@ const App = {
   renderSpreadMatrix(baseVal) {
     const cat = CONVERSION_DATA[this.currentCategory];
     const grid = document.getElementById('matrix-grid');
+    if (!grid || !cat) return;
     grid.innerHTML = '';
 
     Object.entries(cat.units).forEach(([key, u]) => {
@@ -790,7 +796,7 @@ const App = {
 
       const card = document.createElement('div');
       card.className = `matrix-card ${isTarget ? 'is-active-target' : ''}`;
-      card.title = `Click to set ${u.name} as conversion target`;
+      card.title = `Click to set ${u.name} as target unit`;
 
       const valStr = Math.abs(val) < 0.0001 && val !== 0
         ? val.toExponential(3)
@@ -804,7 +810,8 @@ const App = {
       card.addEventListener('click', () => {
         TacticalAudio.playSwitch();
         this.toUnit = key;
-        document.getElementById('select-to').value = key;
+        const sTo = document.getElementById('select-to');
+        if (sTo) sTo.value = key;
         this.recalculate();
       });
 
@@ -814,6 +821,7 @@ const App = {
 
   renderPresets(presets) {
     const container = document.getElementById('preset-buttons');
+    if (!container) return;
     container.innerHTML = '';
 
     presets.forEach(p => {
@@ -827,16 +835,22 @@ const App = {
       btn.addEventListener('click', () => {
         TacticalAudio.playHeadshot();
         this.inputVal = p.val;
-        document.getElementById('input-val').value = p.val;
+        const inputEl = document.getElementById('input-val');
+        if (inputEl) inputEl.value = p.val;
+
         if (p.from) {
           this.fromUnit = p.from;
-          document.getElementById('select-from').value = p.from;
+          const sFrom = document.getElementById('select-from');
+          if (sFrom) sFrom.value = p.from;
         }
         if (p.to) {
           this.toUnit = p.to;
-          document.getElementById('select-to').value = p.to;
+          const sTo = document.getElementById('select-to');
+          if (sTo) sTo.value = p.to;
         }
+
         this.recalculate();
+        this.showToast(`Preset: ${p.name}`);
         this.logStatus(`PRESET LOADED: [${p.name}] = ${p.val}`);
       });
 
@@ -844,76 +858,28 @@ const App = {
     });
   },
 
-  renderWeaponIntel(w) {
-    if (!w) return;
-    document.getElementById('weapon-title').textContent = w.name;
-    document.getElementById('spec-vel').textContent = w.vel;
-    document.getElementById('spec-award').textContent = w.award;
-    document.getElementById('spec-pen').textContent = w.pen;
-    document.getElementById('spec-range').textContent = w.range;
-    document.getElementById('weapon-svg-wrap').innerHTML = w.svg || '';
-  },
-
   logStatus(msg) {
     const el = document.getElementById('status-log');
     if (el) el.textContent = `> ${msg}`;
   },
 
-  showKillfeed(killer, icon, victim) {
-    const kf = document.getElementById('hud-killfeed');
-    const item = document.createElement('div');
-    item.className = 'killfeed-item';
-    item.innerHTML = `
-      <span class="player ct">${killer}</span>
-      <span class="weapon-ico">${icon}</span>
-      <span class="player t">${victim}</span>
-    `;
-    kf.appendChild(item);
+  showToast(msg) {
+    const container = document.getElementById('toast-container');
+    if (!container) return;
+
+    const toast = document.createElement('div');
+    toast.className = 'toast';
+    toast.textContent = msg;
+    container.appendChild(toast);
 
     setTimeout(() => {
-      if (item.parentNode) item.parentNode.removeChild(item);
-    }, 4500);
-  },
-
-  startRoundTimer() {
-    setInterval(() => {
-      this.roundSeconds--;
-      if (this.roundSeconds <= 0) this.roundSeconds = 115;
-      const m = Math.floor(this.roundSeconds / 60);
-      const s = this.roundSeconds % 60;
-      document.getElementById('round-timer').textContent = `${m}:${s < 10 ? '0' : ''}${s}`;
-    }, 1000);
-  },
-
-  startC4Ticker() {
-    this.c4Seconds = 40.0;
-    const timerEl = document.getElementById('c4-timer-display');
-    const fillEl = document.getElementById('c4-fill-bar');
-
-    clearInterval(this.c4TimerInterval);
-    this.c4TimerInterval = setInterval(() => {
-      this.c4Seconds -= 0.1;
-      if (this.c4Seconds <= 0) {
-        this.c4Seconds = 40.0;
-        this.showKillfeed("C4 EXPLOSION", "💥", "Bomb Site A Destroyed");
-      }
-      timerEl.textContent = `${this.c4Seconds.toFixed(1)}s`;
-      const pct = (this.c4Seconds / 40.0) * 100;
-      fillEl.style.width = `${pct}%`;
-    }, 100);
-  },
-
-  defuseC4() {
-    clearInterval(this.c4TimerInterval);
-    const timerEl = document.getElementById('c4-timer-display');
-    timerEl.textContent = "DEFUSED!";
-    timerEl.style.color = "#48e268";
-    this.showKillfeed("CT Defuser", "✂️", "Bomb Has Been Defused");
-
-    setTimeout(() => {
-      timerEl.style.color = "#ff3333";
-      this.startC4Ticker();
-    }, 3000);
+      toast.style.opacity = '0';
+      toast.style.transform = 'translateY(8px)';
+      toast.style.transition = 'all 0.2s ease';
+      setTimeout(() => {
+        if (toast.parentNode) toast.parentNode.removeChild(toast);
+      }, 200);
+    }, 2200);
   }
 };
 
@@ -921,3 +887,4 @@ const App = {
 document.addEventListener('DOMContentLoaded', () => {
   App.init();
 });
+

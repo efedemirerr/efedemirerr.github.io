@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CONVERTLAB // CS:GO TACTICAL UNIT CONVERTER</title>
-  <meta name="description" content="Counter-Strike: Global Offensive themed high-precision unit converter & ballistic calculator.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>ConvertLab // CS:GO Tactical Unit Converter</title>
+  <meta name="description" content="Sleek CS:GO themed unit converter and physical ballistics calculator for engineering and tactical gaming metrics.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Teko:wght@500;600;700&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
@@ -12,70 +12,47 @@
 </head>
 <body class="theme-ct">
 
-  <!-- Tactical Scanlines & Vignette -->
-  <div class="crt-overlay"></div>
-  <div class="radar-ping"></div>
-
-  <!-- Ambient Audio Elements (Web Audio API Synthesized fallback) -->
-  <div class="hud-top-bar">
+  <!-- Compact Tactical HUD Header -->
+  <header class="hud-top-bar">
     <div class="hud-left">
       <div class="cs-logo">
         <span class="cs-icon">★</span>
         <span class="cs-title">CONVERT<span class="highlight">LAB</span></span>
-        <span class="badge-version">v2.4.0 CS:GO EDITION</span>
-      </div>
-      <div class="server-status">
-        <span class="pulse-dot"></span>
-        <span class="status-text">OFFICIAL VALVE SERVER // 128 TICK // DE_DUST2</span>
+        <span class="badge-version">CS:GO EDITION</span>
       </div>
     </div>
 
-    <!-- Match Status Center HUD -->
-    <div class="hud-center">
-      <div class="team-score ct-score">
-        <span class="team-tag">COUNTER-TERRORISTS</span>
-        <span class="score-val" id="ct-score-num">16</span>
-      </div>
-      <div class="timer-bomb-box">
-        <div class="round-timer" id="round-timer">1:45</div>
-        <div class="round-num">ROUND 30 // DEFUSE ACTIVE</div>
-      </div>
-      <div class="team-score t-score">
-        <span class="score-val" id="t-score-num">14</span>
-        <span class="team-tag">TERRORISTS</span>
-      </div>
-    </div>
-
-    <!-- HUD Right Actions -->
+    <!-- HUD Right Actions: Team Theme Toggle, Audio, Return to Portfolio -->
     <div class="hud-right">
-      <div class="team-selector">
-        <button class="team-btn ct-btn active" id="btn-team-ct" title="Switch to Counter-Terrorist HUD">
+      <div class="team-selector" role="group" aria-label="Team Theme Selector">
+        <button class="team-btn ct-btn active" id="btn-team-ct" title="Switch to Counter-Terrorist Blue HUD">
           <span class="team-glyph">🛡️</span> CT
         </button>
-        <button class="team-btn t-btn" id="btn-team-t" title="Switch to Terrorist HUD">
+        <button class="team-btn t-btn" id="btn-team-t" title="Switch to Terrorist Amber HUD">
           <span class="team-glyph">⚔️</span> T
         </button>
       </div>
-      <button class="hud-action-btn" id="sound-toggle" title="Toggle Tactical Beep Audio">
-        <span id="sound-icon">🔊</span> AUDIO: ON
+
+      <button class="hud-action-btn" id="sound-toggle" title="Toggle Tactical Audio Effects">
+        <span id="sound-icon">🔊</span> <span class="btn-text">SOUND: ON</span>
       </button>
-      <a href="../" class="hud-action-btn back-portfolio" title="Return to Main Portfolio">
-        <span>◀</span> PORTFOLIO
+
+      <a href="../" class="hud-action-btn back-portfolio" title="Return to Main Engineering Portfolio">
+        <span>◀</span> <span class="btn-text">PORTFOLIO</span>
       </a>
     </div>
-  </div>
+  </header>
 
-  <!-- Main Container -->
-  <div class="tactical-container">
+  <!-- Main Responsive Container -->
+  <main class="tactical-container">
 
-    <!-- Grouped Tactical Nav Bar: 2 Distinct Sections -->
-    <div class="category-groups-wrapper">
+    <!-- Grouped Category Navigation: 2 Distinct Sections -->
+    <section class="category-groups-wrapper" aria-label="Conversion Categories">
 
       <!-- GROUP 1: Engineering & Physical Conversions -->
       <div class="category-group-block">
         <div class="group-header">
-          <span class="group-badge eng-badge">ENGINEERING DISCIPLINE</span>
-          <span class="group-title">ENGINEERING &amp; PHYSICAL CONVERSIONS</span>
+          <span class="group-badge eng-badge">ENGINEERING &amp; PHYSICS</span>
           <span class="group-subtitle">SI Metric · Imperial · RF Electromagnetics</span>
         </div>
         <nav class="tactical-nav-bar group-nav" id="nav-engineering">
@@ -109,18 +86,17 @@
       <!-- GROUP 2: CS:GO & Tactical Gameplay Metrics -->
       <div class="category-group-block game-group-block">
         <div class="group-header">
-          <span class="group-badge cs-badge">VALVE SOURCE ENGINE</span>
-          <span class="group-title">CS:GO &amp; TACTICAL GAMEPLAY METRICS</span>
+          <span class="group-badge cs-badge">CS:GO &amp; GAMING</span>
           <span class="group-subtitle">Source Engine Ballistics · eDPI · Economy</span>
         </div>
         <nav class="tactical-nav-bar group-nav" id="nav-gameplay">
           <button class="nav-tab" data-cat="velocity">
             <span class="tab-icon">🚀</span>
-            <span class="tab-label">In-Game Velocity</span>
+            <span class="tab-label">Velocity / Speed</span>
           </button>
           <button class="nav-tab" data-cat="csgo_sens">
             <span class="tab-icon">🎯</span>
-            <span class="tab-label">Mouse eDPI &amp; Sens</span>
+            <span class="tab-label">Sensitivity / eDPI</span>
           </button>
           <button class="nav-tab" data-cat="csgo_economy">
             <span class="tab-icon">💰</span>
@@ -129,233 +105,166 @@
         </nav>
       </div>
 
-    </div>
+    </section>
 
-    <!-- Main Workspace Grid -->
-    <div class="workspace-grid">
+    <!-- Main Unit Converter Card -->
+    <section class="tactical-panel converter-panel">
+      <!-- Panel Header -->
+      <div class="panel-header">
+        <div class="panel-title-wrap">
+          <span class="status-indicator"></span>
+          <h1 id="current-cat-title">LENGTH CONVERSION MATRIX</h1>
+        </div>
+        <p class="panel-meta" id="current-cat-desc">
+          NATO STANAG &amp; CS:GO Hammer Unit Metric Alignment
+        </p>
+      </div>
 
-      <!-- LEFT: Tactical Converter Frame -->
-      <section class="tactical-panel converter-panel">
-        <div class="panel-header">
-          <div class="panel-title">
-            <span class="corner-cross top-left">+</span>
-            <span class="corner-cross top-right">+</span>
-            <span class="status-indicator"></span>
-            <h2 id="current-cat-title">LENGTH CALIBRATION MATRIX</h2>
+      <div class="panel-body">
+
+        <!-- Quick 1-Click Tactical Presets -->
+        <div class="presets-container">
+          <div class="presets-header">
+            <span class="presets-label">QUICK PRESETS:</span>
           </div>
-          <div class="panel-meta" id="current-cat-desc">
-            NATO STANAG & CS:GO Hammer Unit Metric Alignment
+          <div class="preset-buttons-grid" id="preset-buttons">
+            <!-- Dynamically populated presets -->
           </div>
         </div>
 
-        <div class="panel-body">
-          <!-- Live Value Input HUD -->
-          <div class="conversion-row">
-            <div class="input-card from-card">
-              <div class="card-header">
-                <span class="card-label">SOURCE VALUE & UNIT</span>
-                <span class="unit-code" id="from-unit-code">SOURCE</span>
-              </div>
-              <div class="input-wrap">
-                <input type="number" id="input-val" class="tactical-input" value="100" step="any" autofocus>
-                <button class="clear-btn" id="btn-clear" title="Clear Input">✕</button>
-              </div>
-              <div class="unit-select-wrap">
-                <select id="select-from" class="tactical-select"></select>
-              </div>
+        <!-- Live Conversion Input / Output Grid -->
+        <div class="conversion-row">
+          <!-- From Card -->
+          <div class="input-card from-card">
+            <div class="card-header">
+              <span class="card-label">FROM</span>
+              <span class="unit-code" id="from-unit-code">SOURCE</span>
             </div>
+            <div class="input-wrap">
+              <input type="number" id="input-val" class="tactical-input" value="100" step="any" inputmode="decimal" placeholder="Enter value..." autofocus>
+              <button class="clear-btn" id="btn-clear" title="Clear Input" aria-label="Clear Input">✕</button>
+            </div>
+            <div class="unit-select-wrap">
+              <select id="select-from" class="tactical-select" aria-label="Source Unit"></select>
+            </div>
+          </div>
 
-            <div class="swap-divider">
-              <button class="swap-btn" id="btn-swap" title="Swap Units">
-                <span class="swap-icon">⇄</span>
-                <span class="swap-label">SWAP</span>
+          <!-- Swap Button -->
+          <div class="swap-divider">
+            <button class="swap-btn" id="btn-swap" title="Swap Units" aria-label="Swap Units">
+              <span class="swap-icon">⇄</span>
+              <span class="swap-label">SWAP</span>
+            </button>
+          </div>
+
+          <!-- To Card -->
+          <div class="input-card to-card">
+            <div class="card-header">
+              <span class="card-label">TO</span>
+              <span class="unit-code" id="to-unit-code">TARGET</span>
+            </div>
+            <div class="input-wrap">
+              <input type="text" id="output-val" class="tactical-input output" readonly value="0.00" aria-label="Converted Result">
+              <button class="copy-btn" id="btn-copy" title="Copy Result to Clipboard" aria-label="Copy to Clipboard">
+                <span class="copy-icon">📋</span>
+                <span class="copy-text">COPY</span>
               </button>
             </div>
-
-            <div class="input-card to-card">
-              <div class="card-header">
-                <span class="card-label">TARGET CONVERTED VALUE</span>
-                <span class="unit-code" id="to-unit-code">TARGET</span>
-              </div>
-              <div class="input-wrap">
-                <input type="text" id="output-val" class="tactical-input output" readonly value="0.00">
-                <button class="copy-btn" id="btn-copy" title="Copy to Clipboard">📋</button>
-              </div>
-              <div class="unit-select-wrap">
-                <select id="select-to" class="tactical-select"></select>
-              </div>
-            </div>
-          </div>
-
-          <!-- Formula & Precision Control Bar -->
-          <div class="tactical-strip">
-            <div class="strip-item formula-box">
-              <span class="strip-label">CALIBRATION FORMULA:</span>
-              <span class="strip-value" id="formula-text">1 Hammer Unit = 0.01905 m</span>
-            </div>
-            <div class="strip-item precision-control">
-              <span class="strip-label">PRECISION:</span>
-              <div class="prec-buttons">
-                <button class="prec-btn" data-prec="2">.00</button>
-                <button class="prec-btn active" data-prec="4">.0000</button>
-                <button class="prec-btn" data-prec="8">.00000000</button>
-              </div>
-            </div>
-          </div>
-
-          <!-- Live Multi-Unit Matrix (Tactical Radar Display) -->
-          <div class="matrix-section">
-            <div class="matrix-header">
-              <span class="matrix-title">LIVE MULTI-UNIT SPREAD (ALL UNITS SIMULTANEOUSLY)</span>
-              <span class="matrix-tag">ACTIVE REAL-TIME TELEMETRY</span>
-            </div>
-            <div class="matrix-grid" id="matrix-grid">
-              <!-- Dynamically populated cards -->
+            <div class="unit-select-wrap">
+              <select id="select-to" class="tactical-select" aria-label="Target Unit"></select>
             </div>
           </div>
         </div>
 
-        <div class="panel-footer">
-          <span class="corner-cross bottom-left">+</span>
-          <span class="corner-cross bottom-right">+</span>
-          <span class="console-text" id="status-log">> SYSTEM READY. AWAITING USER TELEMETRY INPUT...</span>
-          <span class="hash-tag">#VALVE-CONVERTLAB-128TICK</span>
-        </div>
-      </section>
-
-      <!-- RIGHT: Tactical Intel & CS:GO Ballistics / Lore HUD -->
-      <aside class="tactical-panel intel-panel">
-        <div class="panel-header">
-          <div class="panel-title">
-            <span class="corner-cross top-left">+</span>
-            <span class="corner-cross top-right">+</span>
-            <span class="status-indicator warning"></span>
-            <h2>TACTICAL INTEL & BALLISTICS</h2>
+        <!-- Formula & Precision Control Strip -->
+        <div class="tactical-strip">
+          <div class="strip-item formula-box">
+            <span class="strip-label">CALIBRATION FORMULA:</span>
+            <span class="strip-value" id="formula-text">1 Hammer Unit = 0.01905 m</span>
           </div>
-          <div class="panel-meta">
-            In-Game Mechanics & Real-World Physics
+          <div class="strip-item precision-control">
+            <span class="strip-label">DECIMAL PRECISION:</span>
+            <div class="prec-buttons" role="group" aria-label="Decimal Precision">
+              <button class="prec-btn" data-prec="2">.00</button>
+              <button class="prec-btn active" data-prec="4">.0000</button>
+              <button class="prec-btn" data-prec="8">.00000000</button>
+            </div>
           </div>
         </div>
 
-        <div class="panel-body intel-body">
-
-          <!-- Weapon Spec Card -->
-          <div class="intel-card weapon-card" id="intel-weapon">
-            <div class="intel-card-header">
-              <div style="display: flex; align-items: center; gap: 8px;">
-                <span class="weapon-rarity covert">COVERT</span>
-                <span class="weapon-name" id="weapon-title">AWP | DRAGON LORE</span>
-              </div>
-              <button class="fire-weapon-btn" id="btn-fire-weapon" title="Fire Weapon (CS:GO Gunshot Sound)">
-                <span>💥</span> TEST FIRE
-              </button>
+        <!-- Live Multi-Unit Spread Matrix -->
+        <div class="matrix-section">
+          <div class="matrix-header">
+            <div class="matrix-title-group">
+              <span class="matrix-title">LIVE MULTI-UNIT SPREAD</span>
+              <span class="matrix-sub">All units calculated simultaneously in real-time</span>
             </div>
-            <div class="weapon-preview-box">
-              <div class="crosshair-overlay"></div>
-              <div class="weapon-graphic" id="weapon-svg-wrap">
-                <!-- CSGO Weapon Silhouette -->
-              </div>
-              <div class="weapon-specs-grid" id="weapon-specs">
-                <div class="spec-cell">
-                  <span class="spec-lbl">Muzzle Velocity</span>
-                  <span class="spec-val" id="spec-vel">3000 u/s (914 m/s)</span>
-                </div>
-                <div class="spec-cell">
-                  <span class="spec-lbl">Kill Award</span>
-                  <span class="spec-val" id="spec-award">$100</span>
-                </div>
-                <div class="spec-cell">
-                  <span class="spec-lbl">Armor Penetration</span>
-                  <span class="spec-val" id="spec-pen">97.5%</span>
-                </div>
-                <div class="spec-cell">
-                  <span class="spec-lbl">Accurate Range</span>
-                  <span class="spec-val" id="spec-range">96 m (5,039 units)</span>
-                </div>
-              </div>
-            </div>
+            <span class="matrix-tag">1-CLICK TARGET</span>
           </div>
-
-          <!-- CS:GO Hammer Unit Engine Equivalencies Reference -->
-          <div class="intel-card hammer-units-card">
-            <div class="intel-card-header">
-              <span class="badge-hud">SOURCE ENGINE REFERENCE</span>
-              <span class="card-caption">HAMMER UNITS EQUIVALENCE</span>
-            </div>
-            <ul class="hammer-list">
-              <li>
-                <span class="h-name">Player Height (Standing):</span>
-                <span class="h-val">72 units ≈ 1.37 m (4.50 ft)</span>
-              </li>
-              <li>
-                <span class="h-name">Player Height (Crouching):</span>
-                <span class="h-val">54 units ≈ 1.03 m (3.38 ft)</span>
-              </li>
-              <li>
-                <span class="h-name">Knife Run Speed:</span>
-                <span class="h-val">250 units/s ≈ 17.15 km/h (10.65 mph)</span>
-              </li>
-              <li>
-                <span class="h-name">AWP Zoom Run Speed:</span>
-                <span class="h-val">100 units/s ≈ 6.86 km/h (4.26 mph)</span>
-              </li>
-              <li>
-                <span class="h-name">Standard Jump Height:</span>
-                <span class="h-val">56 units ≈ 1.067 m (42 in)</span>
-              </li>
-              <li>
-                <span class="h-name">C4 Explosion Damage:</span>
-                <span class="h-val">500 HP base @ 0-dist (1750 unit lethal radius)</span>
-              </li>
-            </ul>
+          <div class="matrix-grid" id="matrix-grid">
+            <!-- Dynamically populated unit cards -->
           </div>
-
-          <!-- Quick Copy Preset Bar -->
-          <div class="intel-card preset-card">
-            <div class="intel-card-header">
-              <span class="badge-hud">QUICK TACTICAL PRESETS</span>
-              <span class="card-caption">ONE-CLICK LOAD</span>
-            </div>
-            <div class="preset-buttons-grid" id="preset-buttons">
-              <!-- Dynamically populated presets based on active category -->
-            </div>
-          </div>
-
-          <!-- C4 Interactive Defusal Countdown Mini-HUD -->
-          <div class="intel-card c4-defuse-card">
-            <div class="c4-header">
-              <span class="c4-label">BOMB HAS BEEN PLANTED</span>
-              <span class="c4-code">CODE: 7355608</span>
-            </div>
-            <div class="c4-display">
-              <div class="c4-timer" id="c4-timer-display">40.00s</div>
-              <button class="defuse-kit-btn" id="btn-defuse">
-                <span class="kit-icon">✂️</span> DEFUSE (WITH KIT)
-              </button>
-            </div>
-            <div class="c4-progress-bar">
-              <div class="c4-fill" id="c4-fill-bar"></div>
-            </div>
-          </div>
-
         </div>
-      </aside>
 
-    </div>
+      </div>
 
-  </div>
+      <!-- Panel Footer / Console Status -->
+      <div class="panel-footer">
+        <span class="console-text" id="status-log">&gt; CONVERTLAB READY. AWAITING INPUT...</span>
+        <span class="hash-tag">#VALVE-SOURCE-CALIBRATION</span>
+      </div>
+    </section>
 
-  <!-- Bottom Tactical Killfeed / Notification Center -->
-  <div class="hud-killfeed" id="hud-killfeed">
-    <div class="killfeed-item">
-      <span class="player ct">ConvertLab</span>
-      <span class="weapon-ico">🎯</span>
-      <span class="player t">Imperial Units</span>
-      <span class="headshot">💥 HEADSHOT</span>
-    </div>
-  </div>
+    <!-- Collapsible / Clean CS:GO Hammer Units & Ballistics Reference Guide -->
+    <section class="tactical-panel guide-panel">
+      <details class="guide-details" open>
+        <summary class="guide-summary">
+          <div class="summary-left">
+            <span class="summary-icon">📖</span>
+            <span class="summary-title">CS:GO SOURCE ENGINE &amp; REAL-WORLD REFERENCE GUIDE</span>
+          </div>
+          <span class="summary-badge">TAP TO COLLAPSE / EXPAND</span>
+        </summary>
+        <div class="guide-content">
+          <div class="guide-grid">
+            <div class="guide-item">
+              <div class="g-title">🏃 Movement Speeds</div>
+              <ul class="g-list">
+                <li><strong>Knife Run Speed:</strong> 250 units/s ≈ 17.15 km/h (10.65 mph)</li>
+                <li><strong>Scout Run Speed:</strong> 230 units/s ≈ 15.77 km/h (9.80 mph)</li>
+                <li><strong>AWP Unscoped Speed:</strong> 200 units/s ≈ 13.72 km/h (8.52 mph)</li>
+                <li><strong>AWP Zoomed Speed:</strong> 100 units/s ≈ 6.86 km/h (4.26 mph)</li>
+              </ul>
+            </div>
+            <div class="guide-item">
+              <div class="g-title">📏 Dimensions &amp; Geometry</div>
+              <ul class="g-list">
+                <li><strong>1 Hammer Unit:</strong> 0.75 inches = 1.905 cm = 0.01905 m</li>
+                <li><strong>Standing Player Height:</strong> 72 units ≈ 1.372 m (4.50 ft)</li>
+                <li><strong>Crouching Player Height:</strong> 54 units ≈ 1.029 m (3.38 ft)</li>
+                <li><strong>Standard Jump Height:</strong> 56 units ≈ 1.067 m (42 in)</li>
+              </ul>
+            </div>
+            <div class="guide-item">
+              <div class="g-title">🎯 Ballistics &amp; Server Tickrate</div>
+              <ul class="g-list">
+                <li><strong>AWP Muzzle Velocity:</strong> 3000 units/s ≈ 914 m/s (Mach 2.68)</li>
+                <li><strong>64-Tick Server:</strong> 64 updates/s (15.625 ms per tick)</li>
+                <li><strong>128-Tick Server:</strong> 128 updates/s (7.812 ms per tick)</li>
+                <li><strong>C4 Explosion Radius:</strong> 1750 units lethal blast footprint</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </details>
+    </section>
 
-  <!-- Weapon / Game Sound Effects synthesized via Web Audio API -->
+  </main>
+
+  <!-- Non-intrusive Toast Notification Container -->
+  <div class="toast-container" id="toast-container" aria-live="polite"></div>
+
+  <!-- Audio Synthesis & Unit Calculation Logic -->
   <script src="script.js"></script>
 </body>
 </html>
