@@ -523,6 +523,14 @@ h3 {
   flex-basis: 100%;
 }
 
+.skills .tag {
+  background: rgba(56, 189, 248, 0.18);
+  color: #38bdf8;
+  border: 1px solid rgba(56, 189, 248, 0.45);
+  font-weight: 600;
+  border-radius: 999px;
+}
+
 /* Certifications & Languages Grid */
 .two {
   display: grid;

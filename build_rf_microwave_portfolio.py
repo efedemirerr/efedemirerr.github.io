@@ -247,9 +247,9 @@ print_css = """
   .cover-card {
     background: #0d1527 !important;
     border: 1px solid rgba(56, 189, 248, 0.4) !important;
-    border-radius: 10px !important;
-    padding: 22px 26px !important;
-    margin-top: 2px !important;
+    border-radius: 12px !important;
+    padding: 30px 34px !important;
+    margin-top: 4px !important;
     display: flex !important;
     flex-direction: column !important;
     justify-content: space-between !important;
@@ -260,46 +260,27 @@ print_css = """
     display: flex !important;
     justify-content: space-between !important;
     border-bottom: 1px solid rgba(255, 255, 255, 0.12) !important;
-    padding-bottom: 9px !important;
-    margin-bottom: 11px !important;
-    font-size: 8.4pt !important;
+    padding-bottom: 12px !important;
+    margin-bottom: 16px !important;
+    font-size: 8.6pt !important;
     color: #94a3b8 !important;
-    line-height: 1.35 !important;
+    line-height: 1.4 !important;
   }
-  .cover-to { font-weight: 800 !important; color: #ffffff !important; font-size: 9pt !important; }
+  .cover-to { font-weight: 800 !important; color: #ffffff !important; font-size: 9.4pt !important; }
   .cover-body p {
-    font-size: 8.7pt !important;
-    line-height: 1.48 !important;
+    font-size: 9.0pt !important;
+    line-height: 1.58 !important;
     color: #cbd5e1 !important;
-    margin-bottom: 8.5px !important;
+    margin-bottom: 13px !important;
     text-align: justify !important;
   }
   .cover-body strong { color: #ffffff !important; }
 
-  /* Cover Letter 4-Card Summary Matrix */
-  .cover-matrix {
-    display: grid !important;
-    grid-template-columns: 1fr 1fr !important;
-    gap: 8px !important;
-    margin-top: 10px !important;
-    margin-bottom: 8px !important;
-  }
-  .matrix-item {
-    background: rgba(15, 23, 42, 0.7) !important;
-    border: 1px solid rgba(56, 189, 248, 0.25) !important;
-    border-left: 3px solid #38bdf8 !important;
-    border-radius: 6px !important;
-    padding: 7px 10px !important;
-    font-size: 7.6pt !important;
-    line-height: 1.32 !important;
-    color: #cbd5e1 !important;
-  }
-  .matrix-title { font-weight: 700 !important; color: #38bdf8 !important; font-size: 7.9pt !important; margin-bottom: 2px !important; }
   .cover-sign {
-    margin-top: 8px !important;
-    padding-top: 8px !important;
+    margin-top: 16px !important;
+    padding-top: 12px !important;
     border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
-    font-size: 8.6pt !important;
+    font-size: 8.8pt !important;
     color: #ffffff !important;
     display: flex !important;
     justify-content: space-between !important;
@@ -325,7 +306,19 @@ print_css = """
   .hero-content #summary { font-size: 8.3pt !important; line-height: 1.38 !important; margin-bottom: 10px !important; text-align: justify !important; }
   .btn { padding: 4.5px 11px !important; font-size: 7.8pt !important; border: 1px solid rgba(255, 255, 255, 0.15) !important; }
   .featured-stats { display: flex !important; flex-wrap: wrap !important; gap: 5px !important; margin: 5px 0 !important; }
-  .stat-pill { background: rgba(56, 189, 248, 0.15) !important; border: 1px solid rgba(56, 189, 248, 0.4) !important; color: #38bdf8 !important; padding: 2.5px 8.5px !important; border-radius: 999px !important; font-weight: 600 !important; font-size: 7.5pt !important; }
+  .stat-pill { background: rgba(56, 189, 248, 0.18) !important; border: 1px solid rgba(56, 189, 248, 0.45) !important; color: #38bdf8 !important; padding: 2.5px 8.5px !important; border-radius: 999px !important; font-weight: 600 !important; font-size: 7.5pt !important; }
+
+  /* Skills & Highlights Section: ALL tags have the vibrant blue pill background */
+  #skills .tag,
+  .skills .tag {
+    background: rgba(56, 189, 248, 0.18) !important;
+    border: 1px solid rgba(56, 189, 248, 0.45) !important;
+    color: #38bdf8 !important;
+    font-weight: 600 !important;
+    border-radius: 999px !important;
+    padding: 2.5px 8.5px !important;
+    font-size: 7.4pt !important;
+  }
 
   /* Project Pages (Page 2 & 3) Dedicated Layout */
   .project-page-grid {
@@ -533,10 +526,10 @@ print_css = """
     background: #0d1527 !important;
     border: 1px solid rgba(255, 255, 255, 0.1) !important;
     border-radius: 10px !important;
-    padding: 16px 20px !important;
+    padding: 18px 22px !important;
   }
   .two ul { margin: 4px 0 0 12px !important; padding: 0 !important; }
-  .two li { font-size: 7.8pt !important; line-height: 1.4 !important; margin-bottom: 5.5px !important; color: #cbd5e1 !important; }
+  .two li { font-size: 8pt !important; line-height: 1.45 !important; margin-bottom: 6px !important; color: #cbd5e1 !important; }
   .two strong { color: #ffffff !important; }
 
   .refs-grid {
@@ -551,11 +544,11 @@ print_css = """
     border: 1px solid rgba(255, 255, 255, 0.08) !important;
     border-left: 3.5px solid #0284c7 !important;
     border-radius: 8px !important;
-    padding: 12px 14px !important;
+    padding: 13px 15px !important;
     font-size: 7.8pt !important;
-    line-height: 1.35 !important;
+    line-height: 1.36 !important;
   }
-  .ref-name { font-weight: 700 !important; color: #ffffff !important; font-size: 8.4pt !important; }
+  .ref-name { font-weight: 700 !important; color: #ffffff !important; font-size: 8.5pt !important; }
   .ref-meta { color: #94a3b8 !important; margin-top: 3px !important; }
 
   .contact { display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 9px !important; margin-top: 6px !important; }
@@ -563,25 +556,13 @@ print_css = """
     background: #0d1527 !important;
     border: 1px solid rgba(56, 189, 248, 0.28) !important;
     border-radius: 8px !important;
-    padding: 11px 14px !important;
+    padding: 12px 15px !important;
     font-size: 8.4pt !important;
     color: #e2e8f0 !important;
     text-decoration: none !important;
     display: flex !important;
     justify-content: space-between !important;
     align-items: center !important;
-  }
-
-  .portfolio-statement-card {
-    margin-top: 10px !important;
-    background: rgba(56, 189, 248, 0.06) !important;
-    border: 1px solid rgba(56, 189, 248, 0.25) !important;
-    border-radius: 8px !important;
-    padding: 10px 14px !important;
-    font-size: 7.4pt !important;
-    line-height: 1.38 !important;
-    color: #94a3b8 !important;
-    text-align: justify !important;
   }
 
   footer { display: none !important; }
@@ -604,7 +585,7 @@ cover_letter_section = """
         <div class="cover-meta">
           <div>
             <div class="cover-to">BAYKAR TEKNOLOJİ İNSAN KAYNAKLARI DİREKTÖRLÜĞÜ'NE</div>
-            <div style="color: #38bdf8; font-weight: 700; font-size: 8.4pt; margin-top: 2px;">İlgili Pozisyon: RF ve Mikrodalga Sistemleri Geliştirme (2027 Bahar Dönemi Stajı)</div>
+            <div style="color: #38bdf8; font-weight: 700; font-size: 8.6pt; margin-top: 2px;">İlgili Pozisyon: RF ve Mikrodalga Sistemleri Geliştirme (2027 Bahar Dönemi Stajı)</div>
             <div>İstanbul, Türkiye</div>
           </div>
           <div style="text-align: right;">
@@ -629,36 +610,17 @@ cover_letter_section = """
             <strong>2027 Bahar Dönemi Staj Takvimi Kapsamında (01.02.2027 – 22.05.2027):</strong> Üniversite 4. sınıf ders programımı koordine ederek, staj süresince <strong>haftada en az 3 gün (veya birimin ihtiyacına göre daha fazla)</strong> düzenli, kesintisiz ve tam mesaiyle Baykar Ar-Ge tesislerinde aktif görev almaya hazırım.
           </p>
           <p>
-            Baykar'ın milli İHA platformlarında görev yapan anten, RF veri bağı (data link), radar ve mikrodalga alt sistemlerinin tasarım, simülasyon ve test süreçlerine yüksek sorumluluk bilinciyle katkı sağlamayı hedefliyorum. Çalışmalarımı özetleyen teknik portfolyom ekte sunulmuş olup, detaylı projelerime <a href="https://efedemirerr.github.io" style="color: #38bdf8; text-decoration: none; font-weight: 600;">efedemirerr.github.io</a> adresinden de erişilebilir.
+            Baykar'ın milli İHA platformlarında görev yapan anten, RF veri bağı (data link), radar ve mikrodalga alt sistemlerinin tasarım, simülasyon ve test süreçlerine yüksek sorumluluk bilinciyle katkı sağlamayı hedefliyorum. Çalışmalarımı özetleyen teknik portfolyom ekte sunulmuş olup, detaylı projelerime <a href="https://efedemirerr.github.io" style="color: #38bdf8; text-decoration: none; font-weight: 600;">efedemirerr.github.io</a> adresinden de erişilebilir. Başvurumu değerlendirmeye aldığınız için teşekkür eder, saygılarımı sunarım.
           </p>
-        </div>
-
-        <div class="cover-matrix">
-          <div class="matrix-item">
-            <div class="matrix-title">Akademik Derece &amp; Başarı</div>
-            Yaşar Üniv. EEM (3.73 / 4.00, Yüksek Onur, %100 Burs), EEE 4340 Antenler ve Propagasyon, Elektromanyetik Alan Teorisi.
-          </div>
-          <div class="matrix-item">
-            <div class="matrix-title">Savunma Ar-Ge &amp; Test Deneyimi</div>
-            ASELSAN REHİS Test Merkezleri: Anten Yakın Alan X-Y Tarama, VNA Tam 2-Port Kalibrasyon, Amfi P1dB Sıkıştırma Testi.
-          </div>
-          <div class="matrix-item">
-            <div class="matrix-title">Enstrümantasyon &amp; Yazılım</div>
-            C# .NET GUI, Ethernet TCP API Entegrasyonu, Gerçek Zamanlı Tepe Noktası (Peak Search), GRBL G-Code Otomasyonu.
-          </div>
-          <div class="matrix-item">
-            <div class="matrix-title">Staj Uygunluğu &amp; Taahhüt</div>
-            2027 Bahar Dönemi (01.02.2027 – 22.05.2027) boyunca haftada en az 3 gün düzenli ve tam mesai laboratuvar katılımı.
-          </div>
         </div>
       </div>
 
       <div class="cover-sign">
         <div>
-          <div style="font-weight: 700;">Efe DEMİRER</div>
-          <div style="color: #94a3b8; font-size: 7.8pt;">Aday RF ve Mikrodalga Sistemleri Mühendisi · Yaşar Üniversitesi EEM</div>
+          <div style="font-weight: 700; font-size: 9.2pt;">Efe DEMİRER</div>
+          <div style="color: #94a3b8; font-size: 8pt;">Aday RF ve Mikrodalga Sistemleri Mühendisi · Yaşar Üniversitesi EEM</div>
         </div>
-        <div style="text-align: right; color: #94a3b8; font-size: 7.8pt;">
+        <div style="text-align: right; color: #94a3b8; font-size: 8pt;">
           İzmir, Bornova &nbsp;|&nbsp; +90 554 638 86 92 &nbsp;|&nbsp; efedemirer.tr@gmail.com
         </div>
       </div>
@@ -1007,7 +969,7 @@ body_5pages = """
     </section>
 
     <section style="padding: 2px 0 6px 0;">
-      <h2>Education &amp; Academic Honors</h2>
+      <h2>Education</h2>
       <div class="edu-grid">
         <div class="exp-card" style="margin-bottom: 0;">
           <div style="display: flex; justify-content: space-between; align-items: baseline;">
@@ -1016,8 +978,7 @@ body_5pages = """
           </div>
           <p>B.Sc. in Electrical and Electronics Engineering · 100% Merit Scholarship · GPA: 3.73 / 4.00 (High Honor Standing)</p>
           <ul>
-            <li><strong>Core RF &amp; Telecom Coursework:</strong> Antennas and Propagation (EEE 4340), Electromagnetic Field Theory, Microwave &amp; RF Measurement, Digital Communications, Signals and Systems.</li>
-            <li><strong>Academic Honors:</strong> Ranked top in department with full merit scholarship across all academic semesters.</li>
+            <li><strong>Relevant Coursework:</strong> Antennas and Propagation (EEE 4340), Electromagnetic Field Theory, Microwave &amp; RF Measurement, Digital Communications, Signals and Systems.</li>
           </ul>
         </div>
 
@@ -1027,10 +988,6 @@ body_5pages = """
             <span class="date">09/2018 – 06/2022</span>
           </div>
           <p>High School Education · Salutatorian (Ranked 2nd in School) · Graduation Grade: 96.89 / 100</p>
-          <ul>
-            <li><strong>Academic Focus:</strong> Advanced Mathematics, Physics &amp; Analytical Problem Solving.</li>
-            <li><strong>Science Honors:</strong> TÜBİTAK 4006 Science and Society Fair Project Lead.</li>
-          </ul>
         </div>
       </div>
     </section>
@@ -1107,9 +1064,6 @@ body_5pages = """
             <li><strong>Safety Credentials:</strong> ASELSAN Occupational Health &amp; Safety (İSG) Certified</li>
             <li><strong>Internship Availability:</strong> 2027 Spring Semester (01.02.2027 – 22.05.2027), minimum 3 full days/week on-site</li>
           </ul>
-          <div style="margin-top: 14px; padding: 12px 14px; background: rgba(56, 189, 248, 0.08); border: 1px solid rgba(56, 189, 248, 0.25); border-radius: 8px; font-size: 7.5pt; color: #cbd5e1; line-height: 1.4;">
-            <strong style="color: #38bdf8;">Defense Industry Readiness:</strong> Fully cleared for high-frequency test laboratory and anechoic chamber environments with high-voltage and occupational safety compliance, adaptable to defense project sprints and on-site testing requirements.
-          </div>
         </div>
       </div>
     </section>
@@ -1159,9 +1113,6 @@ body_5pages = """
           <span><strong>Live Portfolio:</strong> efedemirerr.github.io</span>
           <span style="color: #38bdf8; font-size: 7.5pt;">Visit Site ↗</span>
         </a>
-      </div>
-      <div class="portfolio-statement-card">
-        <strong>Academic &amp; Technical Verification:</strong> This portfolio represents verified engineering coursework, defense laboratory internships at ASELSAN REHİS Test Centers Directorate, and original technical implementations engineered by Efe Demirer. All measurement datasets, GUI software, and DSP simulation models are available for technical demonstration upon request.
       </div>
     </section>
   </div>
