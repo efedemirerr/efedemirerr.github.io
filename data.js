@@ -130,10 +130,10 @@ window.SITE = {
       ],
       tags: ["C#", ".NET", "GRBL", "G-Code", "Arduino", "Antenna Testing", "Hardware Interfacing", "Test Automation"],
       images: [
-        "assets/img/projects/cnc-scanner-gui.png",
-        "assets/img/projects/cnc-scanner-chassis.png",
-        "assets/img/projects/cnc-hardware-shield.png",
-        "assets/img/projects/cnc-limit-switches.png"
+        "assets_opt/cnc-scanner-gui.jpg",
+        "assets_opt/cnc-scanner-chassis.jpg",
+        "assets_opt/cnc-hardware-shield.jpg",
+        "assets_opt/cnc-limit-switches.jpg"
       ],
       youtube: "",
       link: ""
@@ -150,9 +150,10 @@ window.SITE = {
       ],
       tags: ["C#", "Spectrum Analyzer API", "Spectrum Analyzer", "Ethernet / TCP", "Peak Search Algorithm", "RF Sniffing", "Signal Processing"],
       images: [
-        "assets/img/projects/harogic-spectrum-gui.png",
-        "assets/img/projects/harogic-params-filter.png",
-        "assets/img/projects/harogic-validation.png"
+        "assets_opt/spectrum-custom-gui.jpg",
+        "assets_opt/spectrum-api-arch.jpg",
+        "assets_opt/spectrum-params-gui.jpg",
+        "assets_opt/spectrum-reference-trace.jpg"
       ],
       youtube: "",
       link: ""
@@ -169,9 +170,10 @@ window.SITE = {
       ],
       tags: ["MATLAB", "Digital Communications", "BFSK Modulation", "Acoustic Channel Modeling", "DSP", "Barker Code", "Offline Auth"],
       images: [
-        "assets/img/projects/ultrasonic-system-arch.jpeg",
-        "assets/img/projects/ultrasonic-bfsk-waveform.jpeg",
-        "assets/img/projects/ultrasonic-ber-waterfall.jpeg"
+        "assets_opt/ultrasonic-system-arch.jpg",
+        "assets_opt/ultrasonic-bfsk-waveform.jpg",
+        "assets_opt/ultrasonic-dsp-receiver.jpg",
+        "assets_opt/ultrasonic-ber-waterfall.jpg"
       ],
       youtube: "",
       link: ""
