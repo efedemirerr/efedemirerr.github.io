@@ -274,7 +274,7 @@ print_css = """
     margin-bottom: 13px !important;
     text-align: justify !important;
   }
-  .cover-body strong { color: #ffffff !important; }
+  .cover-body strong, .cover-body b { font-weight: normal !important; color: inherit !important; }
 
   .cover-sign {
     margin-top: 16px !important;
@@ -596,21 +596,21 @@ cover_letter_section = """
         </div>
 
         <div class="cover-body">
-          <p><strong>Sayın Yetkili,</strong></p>
+          <p>Sayın Yetkili,</p>
           <p>
-            Milli Teknoloji Hamlesi vizyonuyla Bayraktar TB2, TB3, AKINCI ve KIZILELMA gibi insansız hava araçları ekosistemimize küresel liderlik kazandıran <strong>BAYKAR Teknoloji</strong> bünyesinde; <strong>RF ve Mikrodalga Sistemleri Geliştirme</strong> biriminde stajyer mühendis olarak görev almak amacıyla başvurumu sunmaktayım.
+            Milli Teknoloji Hamlesi vizyonuyla Bayraktar TB2, TB3, AKINCI ve KIZILELMA gibi insansız hava araçları ekosistemimize küresel liderlik kazandıran BAYKAR Teknoloji bünyesinde; RF ve Mikrodalga Sistemleri Geliştirme biriminde stajyer mühendis olarak görev almak amacıyla başvurumu sunmaktayım.
           </p>
           <p>
-            Yaşar Üniversitesi Elektrik-Elektronik Mühendisliği 4. sınıf öğrencisiyim (%100 Burslu, 3.73 GNO, Yüksek Onur Öğrencisi). Akademik eğitimimde bu dönem almakta olduğum <strong>EEE 4340 Antenler ve Propagasyon</strong>, Elektromanyetik Alan Teorisi ve Mikrodalga Ölçüm disiplinlerinde edindiğim teorik temeli, doğrudan savunma sanayii Ar-Ge ve test laboratuvarlarında somut projelere dönüştürdüm.
+            Yaşar Üniversitesi Elektrik-Elektronik Mühendisliği 4. sınıf öğrencisiyim (%100 Burslu, 3.73 GNO, Yüksek Onur Öğrencisi). Akademik eğitimimde bu dönem almakta olduğum EEE 4340 Antenler ve Propagasyon, Elektromanyetik Alan Teorisi ve Mikrodalga Ölçüm disiplinlerinde edindiğim teorik temeli, doğrudan savunma sanayii Ar-Ge ve test laboratuvarlarında somut projelere dönüştürdüm.
           </p>
           <p>
-            <strong>ASELSAN REHİS Test Merkezleri Müdürlüğü</strong> bünyesindeki stajımda; yankısız odalarda (anechoic chamber) anten ışıma deseni yakın alan ölçümleri için <strong>Kartezyen X-Y tarama otomasyonu ve C# GUI</strong> kontrol yazılımı geliştirdim. Ayrıca Vektör Ağ Analizörü (VNA) tam 2-port kalibrasyonları, ölçüm referans düzleminin kablo uçlarına taşınması, RF bileşen karakterizasyonu ve <strong>amfilerin P1dB sıkıştırma (compression) testlerinde</strong> bilfiil görev aldım. RF soğurucu malzemelerin performansını NRL Arch Test yöntemiyle karakterize ettim ve <strong>Gerçek Zamanlı Spektrum Analizörü (Real-Time Spectrum Analyzer)</strong> için Ethernet TCP üzerinden C/C++ API entegrasyonu ve anlık tepe noktası (peak search) algoritması tasarladım.
+            ASELSAN REHİS Test Merkezleri Müdürlüğü bünyesindeki stajımda; yankısız odalarda (anechoic chamber) anten ışıma deseni yakın alan ölçümleri için Kartezyen X-Y tarama otomasyonu ve C# GUI kontrol yazılımı geliştirdim. Ayrıca Vektör Ağ Analizörü (VNA) tam 2-port kalibrasyonları, ölçüm referans düzleminin kablo uçlarına taşınması, RF bileşen karakterizasyonu ve amfilerin P1dB sıkıştırma (compression) testlerinde bilfiil görev aldım. RF soğurucu malzemelerin performansını NRL Arch Test yöntemiyle karakterize ettim ve Gerçek Zamanlı Spektrum Analizörü (Real-Time Spectrum Analyzer) için Ethernet TCP üzerinden C/C++ API entegrasyonu ve anlık tepe noktası (peak search) algoritması tasarladım.
           </p>
           <p>
-            <strong>2027 Bahar Dönemi Staj Takvimi Kapsamında (01.02.2027 – 22.05.2027):</strong> Üniversite 4. sınıf ders programımı koordine ederek, staj süresince <strong>haftada en az 3 gün (veya birimin ihtiyacına göre daha fazla)</strong> düzenli, kesintisiz ve tam mesaiyle Baykar Ar-Ge tesislerinde aktif görev almaya hazırım.
+            2027 Bahar Dönemi Staj Takvimi Kapsamında (01.02.2027 – 22.05.2027): Üniversite 4. sınıf ders programımı koordine ederek, staj süresince haftada en az 3 gün (veya birimin ihtiyacına göre daha fazla) düzenli, kesintisiz ve tam mesaiyle Baykar Ar-Ge tesislerinde aktif görev almaya hazırım.
           </p>
           <p>
-            Baykar'ın milli İHA platformlarında görev yapan anten, RF veri bağı (data link), radar ve mikrodalga alt sistemlerinin tasarım, simülasyon ve test süreçlerine yüksek sorumluluk bilinciyle katkı sağlamayı hedefliyorum. Çalışmalarımı özetleyen teknik portfolyom ekte sunulmuş olup, detaylı projelerime <a href="https://efedemirerr.github.io" style="color: #38bdf8; text-decoration: none; font-weight: 600;">efedemirerr.github.io</a> adresinden de erişilebilir. Başvurumu değerlendirmeye aldığınız için teşekkür eder, saygılarımı sunarım.
+            Baykar'ın milli İHA platformlarında görev yapan anten, RF veri bağı (data link), radar ve mikrodalga alt sistemlerinin tasarım, simülasyon ve test süreçlerine yüksek sorumluluk bilinciyle katkı sağlamayı hedefliyorum. Çalışmalarımı özetleyen teknik portfolyom ekte sunulmuş olup, detaylı projelerime <a href="https://efedemirerr.github.io" style="color: #38bdf8; text-decoration: none;">efedemirerr.github.io</a> adresinden de erişilebilir. Başvurumu değerlendirmeye aldığınız için teşekkür eder, saygılarımı sunarım.
           </p>
         </div>
       </div>
