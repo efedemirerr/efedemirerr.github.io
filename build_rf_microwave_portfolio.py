@@ -155,7 +155,12 @@ cmd_cv = [edge_path, '--headless', '--disable-gpu', '--no-pdf-header-footer', f'
 subprocess.run(cmd_cv, check=True)
 shutil.copyfile('Efe_Demirer_CV_EN.pdf', 'Efe_Demirer_CV.pdf')
 shutil.copyfile('Efe_Demirer_CV_EN.pdf', 'assets/Efe_Demirer_CV.pdf')
-print('RF-focused CV generated successfully!')
+print('RF-focused English CV generated successfully!')
+
+# Generate Turkish ATS-Compliant CV
+import build_turkish_ats_cv
+build_turkish_ats_cv.build_pdf()
+print('Turkish ATS CV generated successfully!')
 
 # ==============================================================================
 # 2. ENHANCED PRINT CSS FOR BEAUTIFUL, RICH, ZERO-MARGIN FULL-PAGE LAYOUT
