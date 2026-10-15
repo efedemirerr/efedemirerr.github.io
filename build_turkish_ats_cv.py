@@ -7,6 +7,7 @@ if not os.path.exists(edge_path):
 
 # ==============================================================================
 # OTOKOÇ OTOMOTİV İÇİN ADAPTE EDİLMİŞ 1 SAYFA ATS UYUMLU TÜRKÇE CV
+# SAYFAYA ORANTILI, BÜYÜTÜLMÜŞ YAZI TİPLERİ VE SIFIR BOŞLUK
 # ==============================================================================
 cv_otokoc_html = """<!DOCTYPE html>
 <html lang="tr">
@@ -16,7 +17,7 @@ cv_otokoc_html = """<!DOCTYPE html>
 <style>
   @page {
     size: A4 portrait;
-    margin: 6.5mm 10.5mm 6.5mm 10.5mm;
+    margin: 10mm 11mm 10mm 11mm;
   }
   * {
     box-sizing: border-box;
@@ -28,30 +29,30 @@ cv_otokoc_html = """<!DOCTYPE html>
     color: #111827;
     margin: 0;
     padding: 0;
-    font-size: 7.25pt;
-    line-height: 1.25;
+    font-size: 7.95pt;
+    line-height: 1.28;
   }
   .header {
     text-align: center;
-    margin-bottom: 3.5px;
+    margin-bottom: 5px;
     padding-bottom: 2px;
   }
   .name {
-    font-size: 15.5pt;
+    font-size: 17.5pt;
     font-weight: 800;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.6px;
     color: #0f172a;
-    margin: 0 0 1.5px;
+    margin: 0 0 2px;
     text-transform: uppercase;
   }
   .sub-title {
-    font-size: 8.4pt;
+    font-size: 9.2pt;
     font-weight: 700;
     color: #0284c7;
-    margin: 0 0 2.5px;
+    margin: 0 0 3px;
   }
   .contact-bar {
-    font-size: 7.3pt;
+    font-size: 8pt;
     color: #334155;
   }
   .contact-bar a {
@@ -60,70 +61,70 @@ cv_otokoc_html = """<!DOCTYPE html>
     font-weight: 600;
   }
   .section-title {
-    font-size: 8.2pt;
+    font-size: 9pt;
     font-weight: 800;
     color: #0f172a;
     text-transform: uppercase;
-    letter-spacing: 0.4px;
-    border-bottom: 1.2px solid #0f172a;
-    padding-bottom: 1px;
-    margin: 4px 0 2.5px;
+    letter-spacing: 0.5px;
+    border-bottom: 1.3px solid #0f172a;
+    padding-bottom: 1.5px;
+    margin: 6px 0 3px;
   }
   .row {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    margin-bottom: 0.5px;
+    margin-bottom: 1px;
   }
   .entry-title {
-    font-size: 7.8pt;
+    font-size: 8.5pt;
     font-weight: 700;
     color: #0f172a;
   }
   .entry-date {
-    font-size: 7.3pt;
+    font-size: 8pt;
     font-weight: 700;
     color: #0f172a;
     white-space: nowrap;
   }
   .entry-sub {
-    font-size: 7.25pt;
+    font-size: 7.95pt;
     color: #1e293b;
     font-style: italic;
-    margin-bottom: 1px;
+    margin-bottom: 2px;
   }
   p {
-    margin: 0 0 2.5px;
+    margin: 0 0 3px;
     text-align: justify;
   }
   ul {
-    margin: 1px 0 3px 11px;
+    margin: 1.5px 0 3.5px 13px;
     padding: 0;
     list-style-type: disc;
   }
   li {
-    margin-bottom: 0.9px;
-    line-height: 1.24;
+    margin-bottom: 1.4px;
+    line-height: 1.28;
     text-align: justify;
   }
   .skills-list {
-    margin: 1px 0 2px 11px;
+    margin: 1.5px 0 3px 13px;
     padding: 0;
     list-style-type: disc;
   }
   .skills-list li {
-    margin-bottom: 1px;
-    line-height: 1.24;
+    margin-bottom: 1.4px;
+    line-height: 1.28;
   }
   .skills-list strong {
     color: #0f172a;
   }
   .ref-grid {
-    font-size: 7pt;
-    line-height: 1.2;
+    font-size: 7.6pt;
+    line-height: 1.25;
   }
   .ref-item {
-    margin-bottom: 1.2px;
+    margin-bottom: 1.6px;
   }
   .ref-item strong {
     color: #0f172a;
@@ -155,7 +156,7 @@ Yaşar Üniversitesi Elektrik-Elektronik Mühendisliği 4. sınıf öğrencisiyi
   <strong>İlgili Dersler:</strong> Elektrik Makineleri ve Güç Sistemleri, Sayısal Haberleşme, Mikrodenetleyiciler, Sinyaller ve Sistemler, Elektromanyetik Alan Teorisi
 </div>
 
-<div class="row" style="margin-top: 2.5px;">
+<div class="row" style="margin-top: 3px;">
   <div class="entry-title">Cem Bakioğlu Anadolu Lisesi – İzmir</div>
   <div class="entry-date">09/2018 – 06/2022</div>
 </div>
@@ -251,7 +252,7 @@ def build_pdf():
         f'--print-to-pdf={out_pdf}',
         os.path.abspath(temp_html)
     ]
-    print("Running Edge Headless PDF generation for Otokoç adapted CV...")
+    print("Running Edge Headless PDF generation for balanced CV...")
     subprocess.run(cmd, check=True)
     
     if os.path.exists(temp_html):
@@ -262,7 +263,7 @@ def build_pdf():
     print(f"Generated PDF Page Count: {num_pages}")
     
     if num_pages == 1:
-        print("SUCCESS: Perfectly fits on 1 page!")
+        print("SUCCESS: Perfectly balanced on 1 page!")
     else:
         print(f"WARNING: Page count is {num_pages}!")
         
