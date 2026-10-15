@@ -6,17 +6,17 @@ if not os.path.exists(edge_path):
     edge_path = r'C:\Program Files\Microsoft\Edge\Application\msedge.exe'
 
 # ==============================================================================
-# EXACT ORIGINAL CONTENT - ATS COMPLIANT 1-PAGE TURKISH CV FOR EFE DEMİRER
+# OTOKOÇ OTOMOTİV İÇİN ADAPTE EDİLMİŞ 1 SAYFA ATS UYUMLU TÜRKÇE CV
 # ==============================================================================
-cv_tr_html = """<!DOCTYPE html>
+cv_otokoc_html = """<!DOCTYPE html>
 <html lang="tr">
 <head>
 <meta charset="utf-8">
-<title>Efe Demirer - Özgeçmiş</title>
+<title>Efe Demirer - Özgeçmiş (Otokoç Otomotiv)</title>
 <style>
   @page {
     size: A4 portrait;
-    margin: 6mm 10mm 6mm 10mm;
+    margin: 6.5mm 10.5mm 6.5mm 10.5mm;
   }
   * {
     box-sizing: border-box;
@@ -28,45 +28,46 @@ cv_tr_html = """<!DOCTYPE html>
     color: #111827;
     margin: 0;
     padding: 0;
-    font-size: 7.1pt;
-    line-height: 1.23;
+    font-size: 7.25pt;
+    line-height: 1.25;
   }
   .header {
     text-align: center;
-    margin-bottom: 3px;
+    margin-bottom: 3.5px;
     padding-bottom: 2px;
   }
   .name {
-    font-size: 15pt;
+    font-size: 15.5pt;
     font-weight: 800;
     letter-spacing: 0.5px;
     color: #0f172a;
-    margin: 0 0 1px;
+    margin: 0 0 1.5px;
     text-transform: uppercase;
   }
   .sub-title {
-    font-size: 8.3pt;
+    font-size: 8.4pt;
     font-weight: 700;
-    color: #0369a1;
-    margin: 0 0 2px;
+    color: #0284c7;
+    margin: 0 0 2.5px;
   }
   .contact-bar {
-    font-size: 7.2pt;
+    font-size: 7.3pt;
     color: #334155;
   }
   .contact-bar a {
-    color: inherit;
+    color: #0284c7;
     text-decoration: none;
+    font-weight: 600;
   }
   .section-title {
-    font-size: 8.1pt;
+    font-size: 8.2pt;
     font-weight: 800;
     color: #0f172a;
     text-transform: uppercase;
     letter-spacing: 0.4px;
-    border-bottom: 1px solid #1e293b;
+    border-bottom: 1.2px solid #0f172a;
     padding-bottom: 1px;
-    margin: 3.5px 0 2px;
+    margin: 4px 0 2.5px;
   }
   .row {
     display: flex;
@@ -75,34 +76,34 @@ cv_tr_html = """<!DOCTYPE html>
     margin-bottom: 0.5px;
   }
   .entry-title {
-    font-size: 7.6pt;
+    font-size: 7.8pt;
     font-weight: 700;
     color: #0f172a;
   }
   .entry-date {
-    font-size: 7.2pt;
+    font-size: 7.3pt;
     font-weight: 700;
     color: #0f172a;
     white-space: nowrap;
   }
   .entry-sub {
-    font-size: 7.1pt;
-    color: #334155;
+    font-size: 7.25pt;
+    color: #1e293b;
     font-style: italic;
     margin-bottom: 1px;
   }
   p {
-    margin: 0 0 2px;
+    margin: 0 0 2.5px;
     text-align: justify;
   }
   ul {
-    margin: 1px 0 2.5px 11px;
+    margin: 1px 0 3px 11px;
     padding: 0;
     list-style-type: disc;
   }
   li {
-    margin-bottom: 0.8px;
-    line-height: 1.22;
+    margin-bottom: 0.9px;
+    line-height: 1.24;
     text-align: justify;
   }
   .skills-list {
@@ -111,18 +112,18 @@ cv_tr_html = """<!DOCTYPE html>
     list-style-type: disc;
   }
   .skills-list li {
-    margin-bottom: 0.8px;
-    line-height: 1.22;
+    margin-bottom: 1px;
+    line-height: 1.24;
   }
   .skills-list strong {
     color: #0f172a;
   }
   .ref-grid {
-    font-size: 6.85pt;
-    line-height: 1.18;
+    font-size: 7pt;
+    line-height: 1.2;
   }
   .ref-item {
-    margin-bottom: 1px;
+    margin-bottom: 1.2px;
   }
   .ref-item strong {
     color: #0f172a;
@@ -132,100 +133,105 @@ cv_tr_html = """<!DOCTYPE html>
 <body>
 
 <div class="header">
-  <div class="name">EFE DEMİRER</div>
-  <div class="sub-title">Elektrik-Elektronik Mühendisliği Öğrencisi</div>
+  <div class="name">Efe Demirer</div>
+  <div class="sub-title">Elektrik-Elektronik Mühendisi Adayı · Elektrikli Araçlar, Test Otomasyonu &amp; Enerji Sistemleri</div>
   <div class="contact-bar">
-    İzmir, Bornova &nbsp;|&nbsp; 0554 638 86 92 &nbsp;|&nbsp; efedemirer.tr@gmail.com
+    İzmir, Türkiye &nbsp;|&nbsp; +90 554 638 86 92 &nbsp;|&nbsp; <a href="mailto:efedemirer.tr@gmail.com">efedemirer.tr@gmail.com</a> &nbsp;|&nbsp; <a href="https://efedemirerr.github.io">efedemirerr.github.io</a> &nbsp;|&nbsp; <a href="https://linkedin.com/in/efe-demirer-aa7ba3252">LinkedIn</a> &nbsp;|&nbsp; <a href="https://github.com/efedemirerr">GitHub</a>
   </div>
 </div>
 
 <div class="section-title">Özet</div>
 <p>
-Yaşar Üniversitesi Elektrik-Elektronik Mühendisliği 4. sınıf öğrencisiyim. RF ve anten testleri, test otomasyonu, C#/.NET tabanlı uygulama geliştirme, cihaz kontrolü ve elektrik/enerji sistemleri alanlarında saha ve laboratuvar deneyimine sahibim. ASELSAN REHİS Test Merkezleri Müdürlüğü'nde anten test sistemleri, Kartezyen X-Y tarama, VNA, spektrum analizörü, RF bileşen karakterizasyonu, API entegrasyonu ve test otomasyonu çalışmalarında görev aldım. OPA Mühendislik'te ise güneş enerjisi sistemleri, AutoCAD ile elektrik projelendirme, PVsyst, ETAP ve güç sistemleri uygulamaları üzerine çalıştım.
+Yaşar Üniversitesi Elektrik-Elektronik Mühendisliği 4. sınıf öğrencisiyim (%100 Burslu, GNO: 3.73 / 4.00, Yüksek Onur). Elektrikli araç (EA) şarj altyapıları, test otomasyonu, donanım kontrol arayüzleri, C#/.NET ve Python tabanlı telemetri/veri izleme sistemleri ile güç elektroniği alanlarında saha ve Ar-Ge deneyimine sahibim. ASELSAN REHİS bünyesinde haberleşme protokolleri, API tabanlı cihaz kontrolü, donanımsal güvenlik kilitleri ve test otomasyonu yazılımları geliştirdim. OPA Mühendislik bünyesinde elektrikli araç şarj istasyonları projelendirme, AutoCAD ile elektrik dağıtım şemaları, kompanzasyon ve koruma sistemleri üzerine çalıştım. Otokoç Otomotiv'in mobilite, yeni nesil elektrikli araç teknolojileri, filo ve mühendislik operasyonlarına haftada 4 gün katılım sağlayarak uzun dönem stajyer olarak değer katmayı hedefliyorum.
 </p>
 
 <div class="section-title">Eğitim</div>
 <div class="row">
-  <div class="entry-title">Yaşar Üniversitesi - İzmir</div>
-  <div class="entry-date">09/2022 - Devam ediyor</div>
+  <div class="entry-title">Yaşar Üniversitesi – İzmir</div>
+  <div class="entry-date">09/2022 – Devam Ediyor</div>
 </div>
 <div class="entry-sub" style="font-style: normal;">
-  Lisans, Elektrik-Elektronik Mühendisliği &nbsp;|&nbsp; %100 Burslu &nbsp;|&nbsp; GNO: 3.73/4.00
+  Lisans, Elektrik-Elektronik Mühendisliği &nbsp;|&nbsp; %100 ÖSYM Burslu &nbsp;|&nbsp; GNO: 3.73 / 4.00 (Yüksek Onur Öğrencisi)<br>
+  <strong>İlgili Dersler:</strong> Elektrik Makineleri ve Güç Sistemleri, Sayısal Haberleşme, Mikrodenetleyiciler, Sinyaller ve Sistemler, Elektromanyetik Alan Teorisi
 </div>
 
-<div class="row" style="margin-top: 2px;">
-  <div class="entry-title">Cem Bakioğlu Anadolu Lisesi - İzmir</div>
-  <div class="entry-date">09/2018 - 06/2022</div>
+<div class="row" style="margin-top: 2.5px;">
+  <div class="entry-title">Cem Bakioğlu Anadolu Lisesi – İzmir</div>
+  <div class="entry-date">09/2018 – 06/2022</div>
 </div>
-<div class="entry-sub" style="font-style: normal;">
-  Lise Eğitimi &nbsp;|&nbsp; Diploma Notu: 96.89/100
-</div>
+<div class="entry-sub" style="font-style: normal;">Lise Eğitimi &nbsp;|&nbsp; Okul İkincisi (Salutatorian) &nbsp;|&nbsp; Mezuniyet Derecesi: 96.89 / 100</div>
 
-<div class="section-title">İş Deneyimi</div>
+<div class="section-title">İş ve Staj Deneyimi</div>
 
 <div class="row">
-  <div class="entry-title">ASELSAN REHİS Test Merkezleri Müdürlüğü</div>
-  <div class="entry-date">06/2026 - 08/2026</div>
+  <div class="entry-title">OPA Mühendislik – İzmir</div>
+  <div class="entry-date">07/2025 – 08/2025 &amp; 08/2026 – 09/2026</div>
 </div>
-<div class="entry-sub">Stajyer Mühendis</div>
+<div class="entry-sub">Stajyer Mühendis (Elektrikli Araç Altyapıları, Projelendirme &amp; Güç Sistemleri)</div>
 <ul>
-  <li>Anten test sistemleri için Kartezyen X-Y tarama otomasyonu ve C#/.NET tabanlı grafik kullanıcı arayüzü geliştirilmesine katkı sağladım.</li>
-  <li>API tabanlı cihaz kontrolü, Ethernet entegrasyonu ve test sistemi otomasyonu üzerinde çalıştım.</li>
-  <li>Sinyal ölçümlerinde kullanılmak üzere sinyal tepe noktası tespit algoritması tasarladım.</li>
-  <li>Vektör Ağ Analizörü (VNA) kalibrasyonu, ölçüm referans düzleminin kablo uçlarına kaydırılması, RF bileşen karakterizasyonu ve amfi ölçümleri gerçekleştirdim.</li>
-  <li>P1dB sıkıştırma testleri ile amfilerin sıkıştırma karakteristiklerinin ölçüm süreçlerinde görev aldım.</li>
-  <li>Yakın Alan test odası ölçümleri gerçekleştirdim ve RF soğurucu malzemelerin performansını Arch Testi ile analiz ettim.</li>
-  <li>Spektrum analizörü veri sayfası incelemeleri ve ortam/saha sinyal dinlemeleri gerçekleştirdim.</li>
-  <li>RF test senaryolarının planlanması ve test süreçlerinin uygulanmasına destek verdim.</li>
-  <li>Test sistemlerinde Limit Switch tabanlı donanımsal güvenlik altyapısı, motor sürüş sistemi ve G-Code entegrasyonu üzerinde çalıştım.</li>
+  <li>Elektrikli araç (EA) şarj istasyonları için güç tüketim hesapları, kablo kesiti seçimi, altyapı projelendirme ve montaj süreçlerinde aktif görev aldım.</li>
+  <li>AutoCAD kullanarak elektrik tesisat projeleri, güç dağıtım panoları ve tek hat şemaları hazırladım.</li>
+  <li>Topraklama direnci ölçümü, kaçak akım rölesi (RCD) testleri, şalter bağlantıları ve elektriksel güvenlik kontrollerini gerçekleştirerek teknik uygunluk raporları düzenledim.</li>
+  <li>Reaktif güç kompanzasyon panosu tasarımı, kondansatör kademe hesabı ve reaktif güç kontrol rölesi konfigürasyonu yaptım.</li>
+  <li>PVsyst ve ETAP kullanarak GES üretim verim simülasyonları, gölgeleme analizleri gerçekleştirdim; trafo merkezlerinin periyodik denetim süreçlerine katıldım.</li>
 </ul>
 
 <div class="row">
-  <div class="entry-title">OPA Mühendislik</div>
-  <div class="entry-date">07/2025 - 08/2025 &amp; 08/2026 - 09/2026</div>
+  <div class="entry-title">ASELSAN REHİS Test Merkezleri Müdürlüğü – Ankara</div>
+  <div class="entry-date">06/2026 – 08/2026</div>
 </div>
-<div class="entry-sub">Stajyer Mühendis</div>
+<div class="entry-sub">Stajyer Mühendis (Test Otomasyonu, Donanım Kontrolü &amp; Yazılım)</div>
 <ul>
-  <li>Topraklama direnci kontrolü ve kaçak akım testlerinin yapılması ve bu testlerin raporlanması süreçlerinde görev aldım.</li>
-  <li>Güneş enerjisi ve akıllı şebeke/depolama altyapılarının saha kurulumu, pano montajı ve elektrik projelendirme çalışmalarında görev aldım.</li>
-  <li>AutoCAD kullanarak GES elektrik projeleri ve tek hat şemaları hazırladım.</li>
-  <li>PVsyst ile GES sistem simülasyonları, verim analizleri ve enerji üretim performansı hesaplamaları gerçekleştirdim.</li>
-  <li>Kompanzasyon panosu tasarımı, kondansatör hesabı ve reaktif güç rölesi konfigürasyonu çalışmalarında görev aldım.</li>
-  <li>Elektrikli araç şarj istasyonları için güç hesabı, kablo kesiti seçimi ve montaj çalışmalarına katıldım.</li>
-  <li>GES panolarında şalter ve kaçak akım rölesi (RCD) bağlantıları ile pano montaj uygulamalarında görev aldım.</li>
-  <li>Yüksek gerilim tesis işletme sorumluluğu kapsamında trafo merkezlerinin periyodik kontrol süreçlerine katıldım.</li>
+  <li>Test sistemleri için Kartezyen X-Y hareket otomasyonu ve C# .NET Windows Forms tabanlı kullanıcı arayüzü (GUI) geliştirdim.</li>
+  <li>Ethernet (TCP/IP) ve seri port protokolleri üzerinden API tabanlı cihaz kontrolü, telemetri veri akışı ve test otomasyonu yazılımları tasarladım.</li>
+  <li>Gerçek zamanlı sinyal işleme kapsamında dinamik eşik değerli tepe noktası (Peak Search) tespit algoritması geliştirdim.</li>
+  <li>Donanımsal güvenlik altyapısı için Limit Switch tabanlı güvenlik kilit mekanizmaları, step motor sürüşü ve CNC Shield üzerinde GRBL G-Code hareket kontrol entegrasyonu uyguladım.</li>
+  <li>Yüksek frekanslı test cihazlarının kalibrasyonu, elektriksel bileşen karakterizasyonu ve test senaryosu planlaması yürüttüm.</li>
+</ul>
+
+<div class="section-title">Öne Çıkan Projeler</div>
+<div class="row">
+  <div class="entry-title">SolarOPA: Otonom Telemetri, IoT Veri İzleme &amp; Durum Raporlama Platformu</div>
+  <div class="entry-date">2026</div>
+</div>
+<div class="entry-sub" style="font-style: normal;">
+  REST API, Python, OAuth 2.0, SQLite &nbsp;|&nbsp; <em>Canlı Telemetri &amp; Otomasyon</em>
+</div>
+<ul>
+  <li>OpenAPI üzerinden invertör ve güç verilerini anlık okuyan, SQLite zaman serisi veritabanında depolayan ve sahadaki anomalileri filtreleyen otonom telemetri motoru geliştirdim.</li>
+  <li>Veri akışını dinamik performans oranlarına (PR) göre modelleyerek otomatik teknik durum ve arıza analiz raporları üreten sistemi devreye aldım.</li>
 </ul>
 
 <div class="section-title">Teknik Yetkinlikler</div>
 <ul class="skills-list">
-  <li><strong>Programlama ve Uygulama Geliştirme:</strong> C#, .NET, Windows Forms, Grafik Kullanıcı Arayüzü, Arduino IDE</li>
-  <li><strong>Test Otomasyonu ve Cihaz Kontrolü:</strong> Test Otomasyonu, Cihaz Kontrolü, API Entegrasyonu, SCPI</li>
-  <li><strong>RF ve Anten Testleri:</strong> Vektör Ağ Analizörü (VNA), Spektrum Analizörü, RF Bileşen Karakterizasyonu, Yakın Alan Ölçümleri</li>
-  <li><strong>RF Ölçüm ve Karakterizasyon:</strong> Amfi Ölçümleri, P1dB Sıkıştırma Testleri, RF Soğurucu Testleri</li>
-  <li><strong>Tarama ve Hareket Sistemleri:</strong> Kartezyen X-Y Tarama, Motor Sürüş Sistemleri, G-Code Entegrasyonu, Limit Switch</li>
-  <li><strong>Elektrik ve Enerji Sistemleri:</strong> AutoCAD, PVsyst, ETAP, Güneş Enerjisi Sistemleri, Güç Sistemleri Analizi, Reaktif Güç Kompanzasyonu, Kompanzasyon Panosu Tasarımı, Kondansatör Hesabı</li>
-  <li><strong>Simülasyon ve Modelleme:</strong> MATLAB &amp; Simulink, LTspice, Proteus</li>
+  <li><strong>Elektrikli Araçlar &amp; Güç Sistemleri:</strong> Elektrikli Araç (EA) Şarj İstasyonları Altyapısı, Güç Hesabı &amp; Kablo Kesiti Boyutlandırma, AutoCAD, PVsyst, ETAP, Tek Hat Şemaları, Dağıtım Panoları, Reaktif Güç Kompanzasyonu, Topraklama ve Kaçak Akım (RCD) Testleri</li>
+  <li><strong>Yazılım &amp; Test Otomasyonu:</strong> C#, .NET, Windows Forms, GUI Geliştirme, Python, REST API, SQLite, SCPI, Seri Haberleşme (RS-232), Ethernet TCP/IP, MATLAB</li>
+  <li><strong>Mekatronik &amp; Donanım Entegrasyonu:</strong> Kartezyen X-Y Hareket Sistemleri, Step Motor Sürücüleri, CNC Shield, GRBL Firmware, Limit Switch Güvenlik Kilitleri, Arduino, STM32</li>
+  <li><strong>Veri Analitiği &amp; Modelleme:</strong> MATLAB &amp; Simulink, ROKETSAN LEVEL UP AI (YOLO Akıllı Nesne Tespiti), LTspice, Proteus</li>
 </ul>
 
-<div class="section-title">Yabancı Dil ve Diğer Yetkinlikler</div>
+<div class="section-title">Sertifikalar ve Eğitimler</div>
 <ul class="skills-list">
-  <li><strong>Yabancı Dil:</strong> İngilizce B2 (Upper-Intermediate), Yaşar University School of Foreign Languages sertifikalı</li>
-  <li><strong>Profesyonel Yetkinlikler:</strong> Takım Çalışması, Teknik Raporlama, İletişim, Problem Çözme</li>
+  <li><strong>Sanayi ve Teknoloji Bakanlığı &amp; Milli Teknoloji Akademisi:</strong> Çip Tasarımı Uzmanlık Sertifikası (Belge No: 35867118094667)</li>
+  <li><strong>ASELSAN:</strong> 'a Yetenek' Mühendislik Staj Programı Başarı Belgesi (2026) &nbsp;|&nbsp; ASELSAN İSG ve Bilgi Güvenliği Sertifikası (2026)</li>
+  <li><strong>ROKETSAN:</strong> LEVEL UP AI – YOLO ile Nesne Tespiti/Takibi &amp; Otonom AI Agent Geliştirme (2026) &nbsp;|&nbsp; <strong>TUSAŞ:</strong> LIFT UP Programı (2025)</li>
+  <li><strong>Savunma Sanayii Başkanlığı (SSB):</strong> Milli Yetkinlik Hamlesi Zirvesi (2026) &nbsp;|&nbsp; <strong>TÜBİTAK:</strong> 4006 Bilim ve Toplum Programı Yürütücülüğü</li>
+  <li><strong>MathWorks:</strong> Core Signal Processing, Simulink Fundamentals, Simscape Onramp, MATLAB Onramp (2025–2026)</li>
 </ul>
 
-<div class="section-title">Ek Bilgiler</div>
+<div class="section-title">Yabancı Diller &amp; Ek Bilgiler</div>
 <ul class="skills-list">
-  <li><strong>Kişisel Bilgiler:</strong> Ehliyet: B Sınıfı &nbsp;|&nbsp; Askerlik: Tecilli - 31/12/2031</li>
-  <li><strong>İlgi Alanları:</strong> Elektronik Tamirat (DIY), Futbol, Kampçılık, Yüzme, Seyahat, Tarımsal Üretim</li>
+  <li><strong>Yabancı Dil:</strong> İngilizce B2 (Upper-Intermediate, Yaşar Üniversitesi Yabancı Diller Yüksekokulu Sertifikalı), Türkçe (Anadil)</li>
+  <li><strong>Kişisel &amp; Ulaşım:</strong> B Sınıfı Sürücü Belgesi (Aktif) &nbsp;|&nbsp; <strong>Staj Uygunluğu:</strong> Haftada 4 Gün Düzenli Katılım Sağlayabilir &nbsp;|&nbsp; Askerlik: Tecilli (31/12/2031)</li>
 </ul>
 
 <div class="section-title">Referanslar</div>
 <div class="ref-grid">
-  <div class="ref-item"><strong>Prof. Dr. Mustafa SEÇMEN</strong> - Müh. Fak. Dekanı / Yaşar Üni. &nbsp;|&nbsp; mustafa.secmen@yasar.edu.tr &nbsp;|&nbsp; 0232-570-8232</div>
-  <div class="ref-item"><strong>Dr. Ali Haluk NALBANTOĞLU</strong> - Müh. Fak. Öğr. Üyesi / Yaşar Üni., ASELSAN (İlk) Elektronik Harp Direktörü &nbsp;|&nbsp; haluk.nalbantoglu@yasar.edu.tr &nbsp;|&nbsp; 0533 236 13 99</div>
-  <div class="ref-item"><strong>Hüseyin Talha ÇULHA</strong> - RF Test Müh. / Aselsan REHIS &nbsp;|&nbsp; htalhaculha@aselsan.com &nbsp;|&nbsp; 0531 950 43 60</div>
-  <div class="ref-item"><strong>Murat YALÇINKAYA</strong> - Sistem Müh. / Aselsan REHIS via EHSİM &nbsp;|&nbsp; yalcnkayam@gmail.com &nbsp;|&nbsp; 0538 847 90 01</div>
-  <div class="ref-item"><strong>Onur İŞÇİ</strong> - Elektrik Elektronik Müh. / Kurucu - OPA Mühendislik &nbsp;|&nbsp; onur@opamuhendislik.com &nbsp;|&nbsp; 0530 040 28 21</div>
+  <div class="ref-item"><strong>Prof. Dr. Mustafa SEÇMEN</strong> – Yaşar Üniversitesi Mühendislik Fakültesi Dekanı &nbsp;|&nbsp; mustafa.secmen@yasar.edu.tr &nbsp;|&nbsp; +90 232 570 8232</div>
+  <div class="ref-item"><strong>Dr. Ali Haluk NALBANTOĞLU</strong> – Yaşar Üniversitesi Öğretim Üyesi, Eski ASELSAN Elektronik Harp Direktörü &nbsp;|&nbsp; haluk.nalbantoglu@yasar.edu.tr &nbsp;|&nbsp; +90 533 236 1399</div>
+  <div class="ref-item"><strong>Hüseyin Talha ÇULHA</strong> – RF Test Mühendisi / ASELSAN REHİS &nbsp;|&nbsp; htalhaculha@aselsan.com &nbsp;|&nbsp; +90 531 950 4360</div>
+  <div class="ref-item"><strong>Murat YALÇINKAYA</strong> – Sistem Mühendisi / ASELSAN REHİS (EHSİM) &nbsp;|&nbsp; yalcnkayam@gmail.com &nbsp;|&nbsp; +90 538 847 9001</div>
+  <div class="ref-item"><strong>Onur İŞÇİ</strong> – Kurucu &amp; Elektrik-Elektronik Mühendisi / OPA Mühendislik &nbsp;|&nbsp; onur@opamuhendislik.com &nbsp;|&nbsp; +90 530 040 2821</div>
 </div>
 
 </body>
@@ -234,7 +240,7 @@ Yaşar Üniversitesi Elektrik-Elektronik Mühendisliği 4. sınıf öğrencisiyi
 def build_pdf():
     temp_html = 'temp_cv_tr.html'
     with open(temp_html, 'w', encoding='utf-8') as f:
-        f.write(cv_tr_html)
+        f.write(cv_otokoc_html)
     
     out_pdf = os.path.abspath('Efe_Demirer_CV_TR.pdf')
     cmd = [
@@ -245,7 +251,7 @@ def build_pdf():
         f'--print-to-pdf={out_pdf}',
         os.path.abspath(temp_html)
     ]
-    print("Running Edge Headless PDF generation for exact original content...")
+    print("Running Edge Headless PDF generation for Otokoç adapted CV...")
     subprocess.run(cmd, check=True)
     
     if os.path.exists(temp_html):
@@ -256,7 +262,7 @@ def build_pdf():
     print(f"Generated PDF Page Count: {num_pages}")
     
     if num_pages == 1:
-        print("SUCCESS: Exactly 1 page!")
+        print("SUCCESS: Perfectly fits on 1 page!")
     else:
         print(f"WARNING: Page count is {num_pages}!")
         
