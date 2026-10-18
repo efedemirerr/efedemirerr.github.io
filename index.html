@@ -3,84 +3,139 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Efe Demirer – Electrical &amp; Electronics Engineering Portfolio</title>
-  <meta name="description" content="Efe Demirer – Electrical & Electronics Engineering student. RF & antenna test automation, hardware interfacing, and solar telemetry portfolio.">
+  <title>Efe Demirer · RF & Microwave Systems, Test Automation</title>
+  <meta name="description" content="Efe Demirer, Electrical and Electronics Engineering student. Antenna near-field scanning, spectrum analyzer automation, acoustic link DSP and the SolarOPA solar fleet monitoring platform.">
+  <meta property="og:title" content="Efe Demirer · Engineering portfolio">
+  <meta property="og:description" content="RF and microwave test automation at ASELSAN REHİS, and SolarOPA, a live monitoring platform for a 14-plant solar fleet.">
+  <meta property="og:image" content="assets_opt/solaropa-operations.jpg">
+  <meta name="theme-color" content="#0f1b26">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="nav">
-    <a class="brand" href="#top">ED</a>
-    <nav>
-      <a href="#projects">Projects</a>
-      <a href="#experience">Experience</a>
-      <a href="#education">Education</a>
-      <a href="#skills">Skills</a>
-      <a href="#extra">Certifications</a>
-      <a href="convertlab/" style="color: #5c9be6; font-weight: 700;">★ ConvertLab</a>
-      <a href="#contact">Contact</a>
-    </nav>
+  <a class="skip" href="#work">Skip to projects</a>
+
+  <header class="site-nav">
+    <div class="wrap nav-inner">
+      <a class="nav-name" href="#top">Efe Demirer</a>
+      <nav aria-label="Sections">
+        <a href="#work">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#certificates">Certificates</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a class="btn btn-small" id="nav-cv" href="assets/Efe_Demirer_CV.pdf" target="_blank" rel="noopener">Download CV</a>
+    </div>
   </header>
 
   <main id="top">
-    <section class="hero">
-      <div class="hero-card animated-frame">
-        <div class="hero-layout">
-          <img class="avatar" src="assets/img/efe-demirer.jpg" alt="Efe Demirer">
-          <div class="hero-content">
-            <h1 id="name"></h1>
-            <p class="subtitle" id="title"></p>
-            <p id="summary"></p>
-            <div class="actions" id="actions"></div>
-          </div>
-        </div>
+    <section class="hero wrap" aria-labelledby="hero-name">
+      <div class="hero-text">
+        <img class="hero-photo" id="hero-photo" alt="">
+        <h1 id="hero-name"></h1>
+        <p class="hero-role" id="hero-role"></p>
+        <p class="hero-summary" id="hero-summary"></p>
+        <div class="hero-actions" id="hero-actions"></div>
       </div>
-    </section>
 
-    <section id="projects">
-      <h2>Projects</h2>
-      <div class="grid" id="projects-list"></div>
-    </section>
-
-    <section id="experience">
-      <h2>Experience</h2>
-      <div id="experience-list"></div>
-    </section>
-
-    <section id="education">
-      <h2>Education</h2>
-      <div id="education-list"></div>
-    </section>
-
-    <section id="skills">
-      <h2>Skills &amp; Highlights</h2>
-      <div class="skills" id="skills-list"></div>
-    </section>
-
-    <section id="extra">
-      <div class="two">
-        <div>
-          <h2>Certifications</h2>
-          <ul id="cert-list"></ul>
+      <figure class="scope" aria-label="Areas of work shown as markers on a spectrum trace">
+        <div class="scope-bar">
+          <span>Areas of work</span>
+          <span id="scope-count"></span>
         </div>
-        <div>
-          <h2>Languages</h2>
-          <ul id="lang-list"></ul>
+        <div class="scope-screen">
+          <svg id="scope-svg" viewBox="0 0 800 340" preserveAspectRatio="none" role="img" aria-hidden="true"></svg>
         </div>
+        <ol class="scope-markers" id="scope-markers"></ol>
+      </figure>
+    </section>
+
+    <section class="facts wrap" aria-label="Key facts">
+      <dl id="facts"></dl>
+    </section>
+
+    <section class="section wrap" id="work" aria-labelledby="work-title">
+      <div class="section-head">
+        <h2 id="work-title">Projects</h2>
+        <p>Each one opens a full write-up with screenshots.</p>
       </div>
+      <div class="projects" id="projects"></div>
+      <p class="side-projects" id="side-projects"></p>
     </section>
 
-    <section id="contact">
-      <h2>Contact</h2>
-      <div id="contact-list" class="contact"></div>
+    <section class="section wrap" id="experience" aria-labelledby="exp-title">
+      <div class="section-head">
+        <h2 id="exp-title">Experience</h2>
+      </div>
+      <ol class="timeline" id="experience-list"></ol>
+
+      <h3 class="sub-title">Education</h3>
+      <ol class="timeline timeline-compact" id="education-list"></ol>
+    </section>
+
+    <section class="section wrap" id="skills" aria-labelledby="skills-title">
+      <div class="section-head">
+        <h2 id="skills-title">Skills</h2>
+      </div>
+      <div class="skill-grid" id="skills-list"></div>
+      <div class="languages" id="languages"></div>
+    </section>
+
+    <section class="section wrap" id="certificates" aria-labelledby="cert-title">
+      <div class="section-head">
+        <h2 id="cert-title">Certificates</h2>
+      </div>
+      <div class="cert-grid" id="cert-list"></div>
+    </section>
+
+    <section class="contact" id="contact" aria-labelledby="contact-title">
+      <div class="wrap contact-inner">
+        <div>
+          <h2 id="contact-title">Get in touch</h2>
+          <p>Open to RF, test automation and embedded engineering roles and internships.</p>
+          <a class="contact-mail" id="contact-mail"></a>
+        </div>
+        <div class="contact-links" id="contact-links"></div>
+      </div>
     </section>
   </main>
 
-  <footer>© <span id="year"></span> Efe Demirer</footer>
+  <footer class="wrap site-foot">
+    <span>© <span id="year"></span> Efe Demirer</span>
+    <span id="foot-location"></span>
+  </footer>
 
-  <div class="lightbox" id="lightbox" hidden>
-    <button aria-label="Close">×</button>
-    <img alt="">
-  </div>
+  <dialog class="case" id="case" aria-labelledby="case-title">
+    <div class="case-inner">
+      <header class="case-head">
+        <div>
+          <p class="case-org" id="case-org"></p>
+          <h2 id="case-title"></h2>
+          <p class="case-sub" id="case-sub"></p>
+        </div>
+        <button class="case-close" id="case-close" aria-label="Close project">×</button>
+      </header>
+      <dl class="case-metrics" id="case-metrics"></dl>
+      <div class="viewer" id="viewer">
+        <div class="viewer-stage" id="viewer-stage"></div>
+        <div class="viewer-bar">
+          <button class="viewer-nav" id="viewer-prev" aria-label="Previous image">‹</button>
+          <p class="viewer-caption" id="viewer-caption" aria-live="polite"></p>
+          <button class="viewer-nav" id="viewer-next" aria-label="Next image">›</button>
+        </div>
+        <div class="viewer-thumbs" id="viewer-thumbs"></div>
+      </div>
+      <div class="case-body">
+        <p class="case-summary" id="case-summary"></p>
+        <ul class="case-bullets" id="case-bullets"></ul>
+        <div class="case-stack" id="case-stack"></div>
+        <p class="case-note" id="case-note"></p>
+      </div>
+    </div>
+  </dialog>
 
   <script src="data.js"></script>
   <script src="main.js"></script>
