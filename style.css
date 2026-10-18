@@ -77,8 +77,10 @@ p { margin: 0; }
 .btn-quiet { border-color: transparent; padding-left: 8px; padding-right: 8px; color: var(--signal); text-decoration: underline; text-underline-offset: 4px; }
 .btn-quiet:hover { background: transparent; color: var(--signal-ink); }
 .btn-small { padding: 7px 14px; font-size: 0.9rem; }
-.lang-switch { background: none; border: 0; padding: 6px 4px; color: var(--signal); font-weight: 600; cursor: pointer; text-decoration: underline; text-underline-offset: 4px; }
-.lang-switch:hover { color: var(--signal-ink); }
+.lang-switch { display: inline-flex; align-items: center; gap: 6px; background: none; border: 0; padding: 6px 4px; font: inherit; font-weight: 600; letter-spacing: 0.02em; color: var(--muted); cursor: pointer; }
+.lang-switch .sep { color: var(--rule); font-weight: 400; }
+.lang-switch .on { color: var(--signal); text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 2px; }
+.lang-switch:hover span:not(.on):not(.sep) { color: var(--ink); }
 
 /* ---------- Navigation ---------- */
 .site-nav {

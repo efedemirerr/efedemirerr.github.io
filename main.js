@@ -113,9 +113,8 @@
     $("scope").setAttribute("aria-label", t.scope_aria);
     $("facts-section").setAttribute("aria-label", t.facts_aria);
     const sw = $("lang-switch");
-    sw.textContent = t.switch_label;
+    sw.innerHTML = '<span lang="tr"' + (lang === "tr" ? ' class="on"' : "") + '>TR</span><span class="sep" aria-hidden="true">|</span><span lang="en"' + (lang === "en" ? ' class="on"' : "") + '>EN</span>';
     sw.setAttribute("aria-label", t.switch_aria);
-    sw.setAttribute("lang", lang === "tr" ? "en" : "tr");
 
     const cv = d.documents.find((x) => x.primary) || d.documents[0];
     $("nav-cv").href = cv.href;
