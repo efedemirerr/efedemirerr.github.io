@@ -11,6 +11,7 @@
   T.documents[0].label = "CV (İngilizce)";
   T.documents[1].label = "CV (Türkçe)";
   T.documents[2].label = "Portfolyo PDF";
+  T.documents[2].href = "assets/Efe_Demirer_Portfolyo.pdf";
   // Türkçe sayfada önce Türkçe CV
   T.documents = [T.documents[1], T.documents[0], T.documents[2]];
   T.documents[0].primary = true; T.documents[1].primary = false;

@@ -16,6 +16,8 @@ Live at **https://efedemirerr.github.io**.
 - `main.js` renders every section from `data.js`, draws the hero spectrum trace and opens each project as a shareable dialog (`#project/<id>`).
 - `style.css` is the full visual system. No build step, no framework; hosted on GitHub Pages.
 
+The downloadable portfolio PDFs (`assets/Efe_Demirer_Portfolio.pdf` and the Turkish `assets/Efe_Demirer_Portfolyo.pdf`) are generated from the same data with `python tools/build_portfolio_pdf.py`; run it again after changing `data.js` or `data_tr.js`.
+
 To add a project, append an object to `projects` in `data.js` and put its images in `assets_opt/`.
 
 © 2026 Efe Demirer
