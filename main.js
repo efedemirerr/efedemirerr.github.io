@@ -49,25 +49,33 @@ $("skills-list").innerHTML = featuredCard() + d.skills.map((s) => `
 // Projects: with structured bullets and animated frames
 $("projects-list").innerHTML = d.projects.map((p) => {
   let media = "";
-  if (p.youtube) {
+  if (p.video) {
+    const webm = p.video.replace(/\.mp4$/i, ".webm");
+    media = `<video class="cover" ${p.poster ? `poster="${esc(p.poster)}"` : ""} autoplay muted loop playsinline preload="metadata" aria-label="${esc(p.title)} demo">
+      ${webm !== p.video ? `<source src="${esc(webm)}" type="video/webm">` : ""}<source src="${esc(p.video)}" type="video/mp4"></video>`;
+  } else if (p.youtube) {
     media = `<button class="video" data-yt="${esc(p.youtube)}" aria-label="Play video: ${esc(p.title)}">
       <img src="https://i.ytimg.com/vi/${esc(p.youtube)}/hqdefault.jpg" alt="" loading="lazy"><span>▶</span></button>`;
   } else if (p.images && p.images.length) {
     media = `<img class="cover zoom" src="${esc(p.images[0])}" alt="${esc(p.title)}" loading="lazy">`;
   }
-  const thumbs = (p.images && p.images.length > (p.youtube ? 0 : 1))
-    ? `<div class="thumbs">${p.images.slice(p.youtube ? 0 : 1).map((src) => `<img class="zoom" src="${esc(src)}" alt="" loading="lazy">`).join("")}</div>`
+  const hasPlayer = !!(p.video || p.youtube);
+  const thumbs = (p.images && p.images.length > (hasPlayer ? 0 : 1))
+    ? `<div class="thumbs">${p.images.slice(hasPlayer ? 0 : 1).map((src) => `<img class="zoom" src="${esc(src)}" alt="" loading="lazy">`).join("")}</div>`
     : "";
+  const stats = (p.stats && p.stats.length)
+    ? `<div class="project-stats">${p.stats.map((x) => `<span>${esc(x)}</span>`).join("")}</div>` : "";
 
   const bulletContent = (p.bullets && p.bullets.length)
     ? `<ul class="project-bullets">${p.bullets.map((b) => `<li>${b}</li>`).join("")}</ul>`
     : (p.description ? `<p>${esc(p.description)}</p>` : "");
 
-  return `<article class="card project animated-hover">
-    ${media}${thumbs}
+  return `<article class="card project animated-hover${p.wide ? " wide-project" : ""}">
+    <div class="media">${media}${thumbs}</div>
     <div class="body">
       <div class="row"><h3>${esc(p.title)}</h3><span class="meta">${esc(p.date)}</span></div>
       ${p.summary ? `<p class="project-summary">${esc(p.summary)}</p>` : ""}
+      ${stats}
       ${bulletContent}
       <div class="tags">${p.tags.map((t) => `<span class="tag">${esc(t)}</span>`).join("")}</div>
       ${p.link ? `<p><a href="${esc(p.link)}" target="_blank" rel="noopener">View project →</a></p>` : ""}

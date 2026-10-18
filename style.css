@@ -638,3 +638,42 @@ footer {
     font-size: 1rem;
   }
 }
+
+/* Wide (featured) project card — e.g. SolarOPA */
+.project.wide-project {
+  grid-column: 1 / -1;
+}
+.project-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 4px 0 14px;
+}
+.project-stats span {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #fbbf24;
+  background: rgba(245, 158, 11, 0.1);
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  border-radius: 999px;
+  padding: 4px 12px;
+}
+video.cover {
+  cursor: default;
+}
+.project.wide-project .thumbs img {
+  width: 96px;
+  height: 60px;
+}
+@media (min-width: 900px) {
+  .project.wide-project .body {
+    padding: 26px 30px 30px;
+  }
+  .project.wide-project .project-bullets {
+    columns: 2;
+    column-gap: 34px;
+  }
+  .project.wide-project .project-bullets li {
+    break-inside: avoid;
+  }
+}
