@@ -32,7 +32,7 @@ window.SITE = {
     { value: "3.73", label: "GPA out of 4.00, 100% merit scholarship" },
     { value: "ASELSAN", label: "REHİS Test Centers Directorate, 2026" },
     { value: "14", label: "solar plants monitored live by SolarOPA" },
-    { value: "15+", label: "certificates from defence industry, government and MathWorks" }
+    { value: "24", label: "certificates from defence industry, government and MathWorks" }
   ],
 
   projects: [
@@ -179,10 +179,6 @@ window.SITE = {
     }
   ],
 
-  sideProjects: [
-    { title: "ConvertLab", text: "Unit converter and ballistics calculator with a game-HUD interface.", href: "convertlab/" }
-  ],
-
   experience: [
     {
       role: "Engineering intern, RF and microwave test",
@@ -237,25 +233,34 @@ window.SITE = {
 
   certifications: [
     { issuer: "Defence industry", items: [
-      "ASELSAN 'a Yetenek' engineering internship programme, completion (2026)",
-      "ASELSAN occupational health and safety (2026)",
-      "ROKETSAN LEVEL UP AI: object detection and tracking with YOLO (2026)",
-      "ROKETSAN LEVEL UP AI: autonomous AI agents and document assistants (2026)",
-      "TUSAŞ LIFT UP industry-oriented capstone projects conference (2025)",
-      "Savunma Sanayii Akademi, Milli Yetkinlik Hamlesi summit (2026)"
+      { title: "ASELSAN 'a Yetenek' summer internship programme", date: "Jun – Aug 2026", href: "assets/certificates/aselsan-a-yetenek-internship-2026.pdf", thumb: "assets/certificates/thumbs/aselsan-a-yetenek-internship-2026.jpg" },
+      { title: "ASELSAN occupational health and safety training, 12 hours", date: "Jun 2026", href: "assets/certificates/aselsan-occupational-safety-2026.pdf", thumb: "assets/certificates/thumbs/aselsan-occupational-safety-2026.jpg" },
+      { title: "ROKETSAN LEVEL UP AI: object detection and tracking with YOLO", date: "Aug 2026", href: "assets/certificates/roketsan-level-up-ai-yolo-2026.pdf", thumb: "assets/certificates/thumbs/roketsan-level-up-ai-yolo-2026.jpg" },
+      { title: "ROKETSAN LEVEL UP AI: AI agents and document assistants", date: "Aug 2026", href: "assets/certificates/roketsan-level-up-ai-agents-2026.pdf", thumb: "assets/certificates/thumbs/roketsan-level-up-ai-agents-2026.jpg" },
+      { title: "TUSAŞ LIFT UP industry-oriented capstone projects conference", date: "2024 – 2025", href: "assets/certificates/tusas-lift-up-2025.pdf", thumb: "assets/certificates/thumbs/tusas-lift-up-2025.jpg" },
+      { title: "Savunma Sanayii Akademi, Career and Competency Meetings 3", date: "Mar 2026", href: "assets/certificates/ssa-kariyer-yetkinlik-2026.pdf", thumb: "assets/certificates/thumbs/ssa-kariyer-yetkinlik-2026.jpg" },
+      { title: "Savunma Sanayii Akademi, Career and Competency Meetings 1", date: "Dec 2024", href: "assets/certificates/ssa-kariyer-yetkinlik-2024.pdf", thumb: "assets/certificates/thumbs/ssa-kariyer-yetkinlik-2024.jpg" }
     ] },
     { issuer: "Government and research", items: [
-      "Ministry of Industry and Technology and National Technology Academy, chip design specialisation (2026)",
-      "TÜBİTAK 4006 Science and Society support programme"
+      { title: "Chip design specialisation programme, National Technology Move, 10 sessions", date: "Jan – Feb 2026", href: "assets/certificates/chip-design-specialization-2026.pdf", thumb: "assets/certificates/thumbs/chip-design-specialization-2026.jpg" },
+      { title: "TÜBİTAK 4006 science fair, student research project", date: "2017 – 2018", href: "assets/certificates/tubitak-4006-science-fair.pdf", thumb: "assets/certificates/thumbs/tubitak-4006-science-fair.jpg" }
     ] },
-    { issuer: "MathWorks", items: [
-      "Core Signal Processing Techniques in MATLAB",
-      "Core MATLAB Skills",
-      "Simulink Fundamentals (2026)",
-      "Simscape Onramp (2026)",
-      "Signal Processing Onramp (2025)",
-      "Simulink Onramp (2025)",
-      "MATLAB Onramp (2025)"
+    { issuer: "MathWorks", list: true, items: [
+      { title: "Core Signal Processing Techniques in MATLAB, learning path", date: "Dec 2025", href: "assets/certificates/mathworks/core-signal-processing-techniques-in-matlab.pdf" },
+      { title: "Core MATLAB Skills, learning path", date: "Mar 2026", href: "assets/certificates/mathworks/core-matlab-skills.pdf" },
+      { title: "Simulink Fundamentals", date: "Feb 2026", href: "assets/certificates/mathworks/simulink-fundamentals.pdf" },
+      { title: "Simscape Onramp", date: "Feb 2026", href: "assets/certificates/mathworks/simscape-onramp.pdf" },
+      { title: "Spectral Analysis Techniques", date: "Dec 2025", href: "assets/certificates/mathworks/spectral-analysis-techniques.pdf" },
+      { title: "Time-Frequency Analysis", date: "Dec 2025", href: "assets/certificates/mathworks/time-frequency-analysis.pdf" },
+      { title: "Filter Design and Analysis Methods", date: "Dec 2025", href: "assets/certificates/mathworks/filter-design-and-analysis-methods.pdf" },
+      { title: "Signal Generation and Resampling", date: "Dec 2025", href: "assets/certificates/mathworks/signal-generation-and-resampling.pdf" },
+      { title: "MATLAB Desktop Tools and Troubleshooting Scripts", date: "Mar 2026", href: "assets/certificates/mathworks/matlab-desktop-tools-and-troubleshooting-scripts.pdf" },
+      { title: "Calculations with Vectors and Matrices", date: "Feb 2026", href: "assets/certificates/mathworks/calculations-with-vectors-and-matrices.pdf" },
+      { title: "Make and Manipulate Matrices", date: "Feb 2026", href: "assets/certificates/mathworks/make-and-manipulate-matrices.pdf" },
+      { title: "Explore Data with MATLAB Plots", date: "Feb 2026", href: "assets/certificates/mathworks/explore-data-with-matlab-plots.pdf" },
+      { title: "Simulink Onramp", date: "Dec 2025", href: "assets/certificates/mathworks/simulink-onramp.pdf" },
+      { title: "Signal Processing Onramp", date: "Nov 2025", href: "assets/certificates/mathworks/signal-processing-onramp.pdf" },
+      { title: "MATLAB Onramp", date: "Oct 2025", href: "assets/certificates/mathworks/matlab-onramp.pdf" }
     ] }
   ],
 

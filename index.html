@@ -15,19 +15,20 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <a class="skip" href="#work">Skip to projects</a>
+  <a class="skip" href="#work" data-i18n="skip">Skip to projects</a>
 
   <header class="site-nav">
     <div class="wrap nav-inner">
       <a class="nav-name" href="#top">Efe Demirer</a>
       <nav aria-label="Sections">
-        <a href="#work">Projects</a>
-        <a href="#experience">Experience</a>
-        <a href="#skills">Skills</a>
-        <a href="#certificates">Certificates</a>
-        <a href="#contact">Contact</a>
+        <a href="#work" data-i18n="nav_projects">Projects</a>
+        <a href="#experience" data-i18n="nav_experience">Experience</a>
+        <a href="#skills" data-i18n="nav_skills">Skills</a>
+        <a href="#certificates" data-i18n="nav_certs">Certificates</a>
+        <a href="#contact" data-i18n="nav_contact">Contact</a>
       </nav>
-      <a class="btn btn-small" id="nav-cv" href="assets/Efe_Demirer_CV.pdf" target="_blank" rel="noopener">Download CV</a>
+      <button type="button" class="lang-switch" id="lang-switch"></button>
+      <a class="btn btn-small" id="nav-cv" href="assets/Efe_Demirer_CV.pdf" target="_blank" rel="noopener" data-i18n="cv">Download CV</a>
     </div>
   </header>
 
@@ -41,9 +42,9 @@
         <div class="hero-actions" id="hero-actions"></div>
       </div>
 
-      <figure class="scope" aria-label="Areas of work shown as markers on a spectrum trace">
+      <figure class="scope" id="scope" aria-label="Areas of work shown as markers on a spectrum trace">
         <div class="scope-bar">
-          <span>Areas of work</span>
+          <span data-i18n="scope_title">Areas of work</span>
           <span id="scope-count"></span>
         </div>
         <div class="scope-screen">
@@ -53,32 +54,31 @@
       </figure>
     </section>
 
-    <section class="facts wrap" aria-label="Key facts">
+    <section class="facts wrap" id="facts-section" aria-label="Key facts">
       <dl id="facts"></dl>
     </section>
 
     <section class="section wrap" id="work" aria-labelledby="work-title">
       <div class="section-head">
-        <h2 id="work-title">Projects</h2>
-        <p>Each one opens a full write-up with screenshots.</p>
+        <h2 id="work-title" data-i18n="projects_h">Projects</h2>
+        <p data-i18n="projects_p">Each one opens a full write-up with screenshots.</p>
       </div>
       <div class="projects" id="projects"></div>
-      <p class="side-projects" id="side-projects"></p>
     </section>
 
     <section class="section wrap" id="experience" aria-labelledby="exp-title">
       <div class="section-head">
-        <h2 id="exp-title">Experience</h2>
+        <h2 id="exp-title" data-i18n="experience_h">Experience</h2>
       </div>
       <ol class="timeline" id="experience-list"></ol>
 
-      <h3 class="sub-title">Education</h3>
+      <h3 class="sub-title" data-i18n="education_h">Education</h3>
       <ol class="timeline timeline-compact" id="education-list"></ol>
     </section>
 
     <section class="section wrap" id="skills" aria-labelledby="skills-title">
       <div class="section-head">
-        <h2 id="skills-title">Skills</h2>
+        <h2 id="skills-title" data-i18n="skills_h">Skills</h2>
       </div>
       <div class="skill-grid" id="skills-list"></div>
       <div class="languages" id="languages"></div>
@@ -86,7 +86,8 @@
 
     <section class="section wrap" id="certificates" aria-labelledby="cert-title">
       <div class="section-head">
-        <h2 id="cert-title">Certificates</h2>
+        <h2 id="cert-title" data-i18n="certs_h">Certificates</h2>
+        <p data-i18n="certs_p">Select one to open the original document.</p>
       </div>
       <div class="cert-grid" id="cert-list"></div>
     </section>
@@ -94,8 +95,8 @@
     <section class="contact" id="contact" aria-labelledby="contact-title">
       <div class="wrap contact-inner">
         <div>
-          <h2 id="contact-title">Get in touch</h2>
-          <p>Open to RF, test automation and embedded engineering roles and internships.</p>
+          <h2 id="contact-title" data-i18n="contact_h">Get in touch</h2>
+          <p data-i18n="contact_p">Open to RF, test automation and embedded engineering roles and internships.</p>
           <a class="contact-mail" id="contact-mail"></a>
         </div>
         <div class="contact-links" id="contact-links"></div>
@@ -116,15 +117,15 @@
           <h2 id="case-title"></h2>
           <p class="case-sub" id="case-sub"></p>
         </div>
-        <button class="case-close" id="case-close" aria-label="Close project">×</button>
+        <button class="case-close" id="case-close" data-i18n-aria="close" aria-label="Close project">×</button>
       </header>
       <dl class="case-metrics" id="case-metrics"></dl>
       <div class="viewer" id="viewer">
         <div class="viewer-stage" id="viewer-stage"></div>
         <div class="viewer-bar">
-          <button class="viewer-nav" id="viewer-prev" aria-label="Previous image">‹</button>
+          <button class="viewer-nav" id="viewer-prev" data-i18n-aria="prev" aria-label="Previous image">‹</button>
           <p class="viewer-caption" id="viewer-caption" aria-live="polite"></p>
-          <button class="viewer-nav" id="viewer-next" aria-label="Next image">›</button>
+          <button class="viewer-nav" id="viewer-next" data-i18n-aria="next" aria-label="Next image">›</button>
         </div>
         <div class="viewer-thumbs" id="viewer-thumbs"></div>
       </div>
@@ -138,6 +139,7 @@
   </dialog>
 
   <script src="data.js"></script>
+  <script src="data_tr.js"></script>
   <script src="main.js"></script>
 </body>
 </html>
