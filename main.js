@@ -244,6 +244,8 @@
     $("case-summary").textContent = p.summary;
     $("case-bullets").innerHTML = p.bullets.map((b) => `<li>${b}</li>`).join("");
     $("case-stack").innerHTML = `<h3>${esc(t.built_with)}</h3><p>${p.stack.map(esc).join(", ")}</p>`;
+    $("case-links").innerHTML = (p.links || []).map((l) => `<a class="btn" href="${esc(l.href)}" target="_blank" rel="noopener">${esc(l.label)}</a>`).join("");
+    $("case-links").hidden = !(p.links || []).length;
     $("case-note").textContent = p.note || "";
     $("viewer-thumbs").innerHTML = cur.slides.map((s, j) => `
       <button type="button" data-j="${j}" aria-label="${esc(t.show_image(j + 1))}">

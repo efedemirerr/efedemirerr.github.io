@@ -88,94 +88,110 @@ window.SITE = {
     {
       id: "cnc-scanner",
       title: "Planar near-field antenna scanner",
-      subtitle: "Automated X-Y scanning system and control GUI",
+      subtitle: "EFEscan: one-click automated X-Y scanning with fail-safe limits",
       org: "ASELSAN REHİS Test Centers Directorate",
       period: "Summer 2026",
-      role: "Software and motion control",
-      short: "Cartesian X-Y positioner that moves a probe over a planned grid in front of the antenna under test, with hardware safety interlocks and a C# control GUI.",
+      role: "Hardware safety, motion control and GUI",
+      short: "Turned a hand-jogged X-Y antenna test rig into a one-click automated scanner: a C# GUI plans the grid and streams G-code to GRBL, and four fail-safe limit switches protect the hardware.",
       summary:
-        "Planar near-field measurements need the probe placed at hundreds of precise grid points in front of the antenna. I built the control side: a Windows Forms application that plans the scan grid, streams G-code to a GRBL controller and keeps the operator in control while the scan runs.",
+        "The Test Centre's planar scanning rig was driven one jog command at a time from a terminal, so a structured scan of many points took hours of operator attention and was easy to get wrong. I first added hardware protection against over-travel, then wrote EFEscan, a Windows Forms application that runs the complete scan from a single action and lets the operator change the area and resolution without touching code.",
       metrics: [
-        { value: "115200", label: "baud serial link to GRBL" },
-        { value: "4", label: "NC limit switches" },
-        { value: "G90/G91", label: "absolute and relative moves" }
+        { value: "1", label: "operator action per full scan" },
+        { value: "64", label: "points in a 280 × 280 mm scan at 40 mm steps" },
+        { value: "4", label: "fail-safe NC limit switches" },
+        { value: "115200", label: "baud serial link to GRBL" }
       ],
       bullets: [
-        "<strong>Hardware and motion control.</strong> PC to Arduino Uno and CNC Shield V3 running GRBL firmware over an asynchronous serial port, driving the X and Y stepper motors.",
-        "<strong>G-code generation.</strong> Real-time G-code streams (G90, G91, G92, G1) generated from a scan grid centred on the antenna, with configurable width, height and step sizes.",
-        "<strong>Safety interlocks.</strong> Four normally-closed limit switches stop the motors in hardware and put GRBL into alarm mode; unlock and homing are explicit operator actions.",
-        "<strong>Responsive GUI.</strong> Scans run on BackgroundWorker threads so the interface never freezes, with a live bitmap of scanned points and feed-rate-calibrated dwell at each point."
+        "<strong>Safety before software.</strong> A risk review found that nothing stopped a carriage at the end of its rail; an over-travel at full torque could bend a rail, strip a coupling or break the probe mount. I specified, soldered and mounted four limit switches at ±X and ±Y and enabled GRBL hard limits.",
+        "<strong>Fail-safe wiring.</strong> The switches are wired normally closed, so a broken wire looks exactly like a limit hit and raises an ALARM at once instead of hiding until a real crash. Motion resumes only after a deliberate two-step unlock: soft reset (0x18), then $X.",
+        "<strong>Hardware and protocol.</strong> Arduino Uno with GRBL v1.1, CNC Shield V3, two bipolar steppers and a 15 V supply, driven over USB serial at 115200 baud (8N1) with text G-code (G90, G91, G1, G92) and GRBL's “ok” acknowledgements.",
+        "<strong>Centre-focused grid.</strong> The operator jogs the probe over the antenna centre and sets it as origin (G92 X0 Y0). Points are generated symmetrically around it, and the total, (W/ΔX + 1) × (H/ΔY + 1), is shown before the run so its duration can be estimated.",
+        "<strong>Boustrophedon route.</strong> The X direction alternates on every row to avoid return travel. Each point is one G90 G1 move, and the next is sent only after GRBL answers “ok”.",
+        "<strong>Operator stays in control.</strong> Live progress counter, pause and resume from the last completed point, reset to origin without losing the reference, and a START button that stays locked until the port is connected, GRBL is unlocked, inputs are validated against axis travel and the origin is set. Scans run on a background worker so the interface never freezes."
       ],
-      stack: ["C#", ".NET Windows Forms", "GRBL", "G-code", "Arduino", "Serial (RS-232)", "Stepper motors"],
+      stack: ["C#", ".NET Windows Forms", "GRBL v1.1", "G-code", "Arduino Uno", "CNC Shield V3", "Serial (USB, 8N1)", "Stepper motors"],
       cover: "assets_opt/cnc-scanner-chassis.jpg",
       gallery: [
-        { src: "assets_opt/cnc-scanner-chassis.jpg", caption: "X-Y scanner frame carrying the probe." },
-        { src: "assets_opt/cnc-limit-switches.jpg", caption: "The four limit switch positions on the axes." },
-        { src: "assets_opt/cnc-hardware-shield.jpg", caption: "Arduino Uno, CNC Shield V3, stepper drivers and limit switch wiring." },
-        { src: "assets_opt/cnc-scan-area.jpg", caption: "Scan grid: width, height and step sizes around the centred origin." },
-        { src: "assets_opt/cnc-scanner-gui.jpg", caption: "Control GUI: connection, jogging, scan planning and run controls." },
-        { src: "assets_opt/cnc-grid-algorithm.jpg", caption: "Scan planning and progress view." }
+        { src: "assets_opt/cnc-scanner-chassis.jpg", caption: "X-Y frame: Y carriage on the main frame, X carriage on the cross-member, probe mount facing down." },
+        { src: "assets_opt/cnc-limit-switches.jpg", caption: "The four normally-closed limit switches at the ends of the X and Y travel." },
+        { src: "assets_opt/cnc-hardware-shield.jpg", caption: "15 V supply, Arduino Uno with CNC Shield V3, stepper wiring and limit switch wiring." },
+        { src: "assets_opt/cnc-scan-area.jpg", caption: "Centre-focused boustrophedon path: origin at the antenna centre, direction alternating on each row." },
+        { src: "assets_opt/cnc-scanner-gui.jpg", caption: "EFEscan: communication, jog and scan sections, with unlock ($X) and home ($H)." },
+        { src: "assets_opt/cnc-grid-algorithm.jpg", caption: "Set to 280 × 280 mm at 40 mm steps: 64 points calculated before the run." }
       ]
     },
     {
       id: "spectrum-api",
       title: "Real-time spectrum analyzer control",
-      subtitle: "Instrument API integration and custom GUI",
+      subtitle: "Ethernet control of a Harogic NXN-400 with automatic peak search",
       org: "ASELSAN REHİS Test Centers Directorate",
       period: "Summer 2026",
       role: "Instrument software",
-      short: "C# application that drives a real-time spectrum analyzer through the manufacturer's native API over Ethernet and finds carrier peaks above the noise floor automatically.",
+      short: "C# application that configures a Harogic NXN-400 real-time spectrum analyzer over Ethernet through its HtraApi library and lists every carrier above the noise floor, validated against the instrument's own markers.",
       summary:
-        "The lab needed to configure the analyzer and pull marker data from its own tools instead of the vendor software. I wrote a desktop application on top of the manufacturer's C/C++ API that manages the connection, sets the sweep and runs a peak search, then validated its results against the vendor software.",
+        "Reading signals off the analyzer meant placing markers by hand in the vendor software. I wrote a desktop tool that connects to the instrument over Ethernet, sends a validated sweep in one call and runs a peak search on the returned trace, then checked it against the instrument's built-in markers on a 300 MHz – 4 GHz measurement. The lab later used the same peak search in its RF absorber arch tests.",
       metrics: [
-        { value: "TCP/IPv4", label: "Ethernet control on port 5000" },
-        { value: "−70 dBm", label: "calibrated noise floor threshold" },
-        { value: "Auto", label: "RBW selection from span" }
+        { value: "12", label: "carriers found between 300 MHz and 4 GHz" },
+        { value: "−70 dBm", label: "noise floor threshold, set from lab background" },
+        { value: "1 call", label: "to send a validated sweep" },
+        { value: "Port 5000", label: "Ethernet control over IPv4" }
       ],
       bullets: [
-        "<strong>Native API integration.</strong> Connection management through the vendor C/C++ API over Ethernet, with IP validation and a persistent device session.",
-        "<strong>Sweep configuration.</strong> Start/stop or centre/span entry with automatic resolution bandwidth tuning.",
-        "<strong>Peak search.</strong> Real-time detection of carriers above the calibrated noise floor to separate real signals from ambient RF noise, listed with frequency and power.",
-        "<strong>Validation.</strong> Results compared marker by marker against the manufacturer's reference software in the defence test environment."
+        "<strong>Connection.</strong> The operator enters the analyzer's IP address; the app validates it, sets the HtraApi boot profile to port 5000 and IPv4, opens a session with Device_Open and shows the device model. A failure shows the API error code and what to check.",
+        "<strong>Debugging the link.</strong> The first connection failed silently. With a static IP on the host adapter in the instrument's subnet, ping tests and the API documentation, I traced it to a wrong port in the boot profile.",
+        "<strong>Parameter management.</strong> Start, stop, centre and span, automatic or manual RBW and the noise floor are checked (start below stop, floor negative in dBm) and sent to the instrument in a single call.",
+        "<strong>Peak search.</strong> A trace point is reported only if it is above the noise floor and a local maximum, with a minimum bin separation so the shoulders of a wide signal are not counted as extra peaks.",
+        "<strong>Responsive interface.</strong> Network transfers use async/await, so the GUI stays usable during long sweep downloads.",
+        "<strong>Validation and use.</strong> Peak frequencies matched the instrument's own markers within the resolution bandwidth, with no false peaks from ambient noise. In arch tests the tool picked out the dominant reflected component automatically instead of manual marker placement."
       ],
-      stack: ["C#", ".NET", "Vendor C/C++ API", "Ethernet TCP/IP", "Signal processing"],
+      stack: ["C#", ".NET Windows Forms", "HtraApi (vendor C/C++ API)", "Ethernet TCP/IP", "async/await", "Peak detection"],
       cover: "assets_opt/spectrum-reference-trace.jpg",
       gallery: [
-        { src: "assets_opt/spectrum-custom-gui.jpg", caption: "Peak search results: frequency and power of each detected carrier." },
-        { src: "assets_opt/spectrum-api-arch.jpg", caption: "Connection to the analyzer over Ethernet." },
-        { src: "assets_opt/spectrum-params-gui.jpg", caption: "Sweep parameters sent to the instrument." },
-        { src: "assets_opt/spectrum-reference-trace.jpg", caption: "Reference trace in the vendor software, used for validation." }
+        { src: "assets_opt/spectrum-custom-gui.jpg", caption: "Peak search over 300 MHz – 4 GHz: 12 carriers listed, the strongest at 1876.855 MHz." },
+        { src: "assets_opt/spectrum-api-arch.jpg", caption: "Connected over Ethernet: the log confirms the session and device model (serial number hidden)." },
+        { src: "assets_opt/spectrum-params-gui.jpg", caption: "Sweep parameters validated and sent to the instrument in one call." },
+        { src: "assets_opt/spectrum-reference-trace.jpg", caption: "The analyzer's own markers for the same band, used to validate the GUI." }
       ]
     },
     {
       id: "ultrasonic",
       title: "Ultrasonic ticketing system",
       subtitle: "Offline access control over an inaudible acoustic link",
-      org: "Yaşar University",
-      period: "2026",
-      role: "Telecommunications project",
-      short: "A phone speaker sends an access token to a turnstile microphone at 18–22 kHz, with no internet, NFC or QR scanning involved.",
+      org: "Yaşar University, EEE 3524 Telecommunications",
+      period: "Spring 2026",
+      role: "Individual term project",
+      short: "A phone speaker sends a 16-bit access token to a turnstile microphone at 18–22 kHz, with no internet, NFC or QR scanning. Simulated end to end in MATLAB, the link keeps bit errors under 1% down to −16 dB SNR.",
       summary:
-        "QR-based gates slow down at peak times and fail without connectivity. This project designs a near-ultrasound link that ordinary phone speakers and microphones can carry, and simulates it end to end in MATLAB, from token bits to the bit error rate at the receiver.",
+        "QR gates at busy stations, such as İzmir's metro, İZBAN and ferry turnstiles, slow down when a code won't scan in sunlight or the network drops, and NFC is not on every phone. This project designs a software-defined acoustic modem that needs only the speaker and microphone every phone already has, and tests it in MATLAB against the conditions of a real station: speaker roll-off, train noise, echoes and a walking user.",
       metrics: [
-        { value: "18–22 kHz", label: "inaudible band" },
-        { value: "BFSK", label: "modulation" },
-        { value: "16-bit", label: "token with parity" }
+        { value: "−16 dB", label: "lowest SNR with BER under 1%" },
+        { value: "0.75%", label: "BER at −16 dB, 3,200 bits per point" },
+        { value: "1.5 m/s", label: "walking-speed Doppler tolerated" },
+        { value: "38 bits", label: "per frame, 1.52 s at 25 bit/s" }
       ],
       bullets: [
-        "<strong>Token and framing.</strong> User and station IDs packed into a 16-bit token, framed with a Barker sequence for synchronisation and a parity bit.",
-        "<strong>Modulation.</strong> Binary frequency-shift keying between two tones inside the 18–22 kHz band, inaudible to people but within phone hardware limits.",
-        "<strong>Channel model.</strong> Two-ray multipath, coloured ambient noise, transducer band limits and Doppler shift from a moving user.",
-        "<strong>Receiver and results.</strong> Quadrature mixing, envelope detection, Barker correlation and parity checks, evaluated with bit error rate against SNR."
+        "<strong>Token.</strong> A 10-bit user ID (1,024 users) and a 6-bit station ID (64 gates) are bit-packed into a fixed 16-bit payload, a quarter of what ASCII or 32-bit integers would need, with every field at a fixed position.",
+        "<strong>Frame.</strong> 8-bit 10101010 preamble for microphone settling, 13-bit Barker sync word, the 16-bit payload and an even parity bit: 38 bits in all.",
+        "<strong>Modulation.</strong> BFSK at 18.5 kHz for 0 and 19.5 kHz for 1, 40 ms symbols at 48 kHz sampling, about 25 bit/s. The 1 kHz spacing keeps the tones orthogonal and is far wider than the roughly 85 Hz Doppler shift of a walking user; 40 ms lets echoes die out before the next bit.",
+        "<strong>Station channel.</strong> 6th-order Butterworth 18–22 kHz band-pass for speaker and microphone roll-off, AWGN plus 10–20 kHz coloured train noise, a two-ray echo (β = 0.4, 5 ms) and Doppler applied as time scaling with spline interpolation.",
+        "<strong>Receiver.</strong> Non-coherent I/Q mixing at both tones, a one-bit moving average as matched filter before squaring, mark-minus-space envelope decision, Barker cross-correlation for timing, mid-symbol sampling, parity check and token unpacking.",
+        "<strong>Results.</strong> Monte Carlo sweep from −20 to +20 dB with 200 packets per point: no errors at +20 dB, 0.25% at 0 dB, 0.28% at −10 dB and 0.75% at −16 dB, where the noise is 40 times stronger than the signal. The link breaks down at −20 dB (17%).",
+        "<strong>Next steps identified.</strong> Reed-Solomon or Hamming codes instead of parity, continuous-phase FSK, time-based one-time tokens against replay attacks and TDMA for several users at one gate."
       ],
-      stack: ["MATLAB", "Digital communications", "BFSK", "DSP", "Channel modelling"],
+      stack: ["MATLAB", "BFSK", "Non-coherent I/Q demodulation", "Barker synchronisation", "Channel modelling", "Monte Carlo BER"],
       cover: "assets_opt/ultrasonic-system-arch.jpg",
       gallery: [
         { src: "assets_opt/ultrasonic-system-arch.jpg", caption: "Concept: the phone transmits, the turnstile listens." },
-        { src: "assets_opt/ultrasonic-bfsk-waveform.jpg", caption: "Input bitstream before modulation." },
-        { src: "assets_opt/ultrasonic-dsp-receiver.jpg", caption: "Receiver stages: noisy signal, filtered envelopes, decision signal." },
-        { src: "assets_opt/ultrasonic-ber-waterfall.jpg", caption: "Bit error rate against SNR for the full simulated link." }
-      ]
+        { src: "assets_opt/ultrasonic-token-packing.jpg", caption: "Token generation: user and station IDs packed into 16 bits." },
+        { src: "assets_opt/ultrasonic-bfsk-waveform.jpg", caption: "Input bitstream with a 1 → 0 transition at 40 ms." },
+        { src: "assets_opt/ultrasonic-spectrogram.jpg", caption: "Spectrogram of the BFSK signal jumping from 19.5 kHz to 18.5 kHz." },
+        { src: "assets_opt/ultrasonic-channel.jpg", caption: "Clean transmitted signal and the same signal after band limits, noise, echo and Doppler." },
+        { src: "assets_opt/ultrasonic-dsp-receiver.jpg", caption: "Receiver at 10 dB SNR: noisy input, tone envelopes and the decision signal." },
+        { src: "assets_opt/ultrasonic-barker-sync.jpg", caption: "Barker cross-correlation peak sets the timing; bits are sampled at symbol centres." },
+        { src: "assets_opt/ultrasonic-ber-waterfall.jpg", caption: "BER against SNR; the dashed line is the 1% operating limit." }
+      ],
+      links: [{ label: "Full project report (PDF, 27 pages)", href: "assets/docs/ultrasonic-ticketing-report.pdf" }],
+      note: "Concept illustrations were generated with Gemini, as credited in the report; all plots are MATLAB simulation output."
     }
   ],
 
@@ -186,10 +202,11 @@ window.SITE = {
       period: "Jun – Aug 2026",
       location: "Ankara",
       bullets: [
-        "Built the X-Y scanning automation and C# GUI for a planar near-field antenna test system.",
-        "Wrote an Ethernet API application for a real-time spectrum analyzer with automatic RBW and peak search.",
+        "Added fail-safe limit switches to a planar near-field antenna scanner and wrote EFEscan, the C# GUI that runs a full scan from one action.",
+        "Wrote an Ethernet control application for a Harogic NXN-400 spectrum analyzer with automatic peak search, validated against the instrument's markers.",
         "Ran VNA full two-port calibrations with reference planes moved to the cable ends, characterized RF components and measured amplifier gain and P1dB compression.",
-        "Took part in near-field anechoic chamber measurements and NRL arch testing of radar-absorbent materials."
+        "Took part in near-field anechoic chamber measurements and NRL arch testing of radar-absorbent materials.",
+        "Assembled and tested a phased array measurement setup in which an STM32 steps an SP3T RF switch across antenna elements for VNA sweeps."
       ]
     },
     {
